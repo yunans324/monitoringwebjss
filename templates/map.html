@@ -1,601 +1,395 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Monitoring ONT - LIFE MEDIA</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="{{ url_for('static', filename='icons/logo.png') }}">
-  <style>
-    body {
-    font-family: 'Inter', sans-serif;
-    background: #f8f9fb;
-    margin: 0;
-    }
+    <title>ONT Command Center - LIFE MEDIA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-    #map { height: 100vh; }
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='icons/logo.png') }}">
+    
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f8f9fb;
+            margin: 0;
+            color: #333; /* Warna teks utama diubah menjadi gelap */
+            overflow: hidden;
+        }
 
-    .notif {
-      position: fixed;
-      top: 64px;
-      right: 20px;
-      min-width: 220px;
-      background: #fff;
-      color: #222;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      padding: 16px 24px;
-      z-index: 9999;
-      font-size: 1em;
-      margin-bottom: 10px;
-      border-left: 6px solid #e74c3c;
-      display: none;
-    }
-    .notif.on { border-left-color: #27ae60; }
-    .notif h4 {
-      margin: 0 0 8px 0;
-      font-size: 1.1em;
-      font-weight: 600;
-    }
-    
-    .notif-list {
-      position: fixed;
-      top: 70px;
-      right: 20px;
-      width: 320px;
-      max-height: 400px;
-      overflow-y: auto;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
-      z-index: 10001;
-      display: none;
-      flex-direction: column;
-      padding: 0 0 10px 0;
-    }
-    .notif-list-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 18px 8px 18px;
-      border-bottom: 1px solid #eee;
-      font-weight: bold;
-      font-size: 1.1em;
-    }
-    .notif-list-item {
-      padding: 10px 18px 6px 18px;
-      border-bottom: 1px solid #f2f2f2;
-      font-size: 0.98em;
-    }
-    .notif-list-item:last-child { border-bottom: none; }
-    .notif-list-time {
-      font-size: 0.85em;
-      color: #888;
-      margin-top: 2px;
-    }
-    .notif-clear-btn {
-      background: #e74c3c;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      padding: 4px 12px;
-      cursor: pointer;
-      font-size: 0.95em;
-    }
-    
-    .dashboard-btn {
-      position: fixed;
-      top: 20px;
-      left: 80px;
-      z-index: 10000;
-      background: linear-gradient(135deg, #ff6b35 0%, #e74c3c 100%);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 16px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-    }
-    
-    .dashboard-btn:hover {
-      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      text-decoration: none;
-      color: #fff;
-    }
-    
-    .fit-area-btn {
-      position: fixed;
-      top: 20px;
-      left: 130px;
-      z-index: 10000;
-      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 16px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      transition: all 0.2s ease;
-    }
-    
-    .fit-area-btn:hover {
-      background: linear-gradient(135deg, #2980b9 0%, #1f5f8b 100%);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    
-    .notification-icon {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 10000;
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      color: white;
-    }
-    
-    .notification-icon:hover {
-      background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
-      transform: scale(1.1);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-    }
-    
-    .notification-icon .badge {
-      position: absolute;
-      top: -5px;
-      right: -5px;
-      background: #f39c12;
-      color: white;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      font-size: 12px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid white;
-    }
-    
-    .hamburger-btn {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 20000;
-      width: 44px;
-      height: 44px;
-      background: #fff;
-      border: 2px solid #e74c3c;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      padding: 0;
-      margin-left: 50px;
-      transition: opacity 0.3s ease;
-    }
-    .hamburger-btn span {
-      display: block;
-      width: 26px;
-      height: 4px;
-      background: #e74c3c;
-      border-radius: 2px;
-      transition: all 0.3s;
+        #map { 
+            height: 100vh; 
+            width: 100vw;
+            background-color: #f0f0f0;
+        }
 
-    }
-    .sidebar-menu {
-      position: fixed;
-      top: 0;
-      left: -320px;
-      width: 300px;
-      height: 100vh;
-      background: #fff;
-      box-shadow: 2px 0 16px rgba(0,0,0,0.13);
-      z-index: 12000;
-      transition: left 0.3s;
-      display: flex;
-      flex-direction: column;
-    }
-    .sidebar-menu.open {
-      left: 0;
-    }
-    .sidebar-header {
-      font-size: 1.3em;
-      font-weight: bold;
-      padding: 24px 24px 12px 24px;
-      border-bottom: 1px solid #eee;
-    }
-    .sidebar-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .sidebar-list li {
-      border-bottom: 1px solid #f2f2f2;
-    }
-    .sidebar-list a {
-      display: block;
-      padding: 16px 24px;
-      color: #e74c3c;
-      text-decoration: none;
-      font-size: 1.08em;
-      font-weight: 500;
-      transition: background 0.2s;
-    }
-    .sidebar-list a:hover {
-      background: #f8f9fb;
-    }
-    .sidebar-history-header {
-      font-size: 1.08em;
-      font-weight: 600;
-      padding: 18px 24px 8px 24px;
-      border-bottom: 1px solid #eee;
-      margin-top: 10px;
-    }
-    .sidebar-history-list {
-      flex: 1;
-      overflow-y: auto;
-      padding: 0 24px 24px 24px;
-      font-size: 0.98em;
-      color: #444;
-    }
-    .sidebar-history-item {
-      border-bottom: 1px solid #f2f2f2;
-      padding: 10px 0 6px 0;
-    }
-    .sidebar-history-time {
-      font-size: 0.85em;
-      color: #888;
-      margin-top: 2px;
-    }
-  </style>
+        /* Panel Samping - Tema Terang */
+        .side-panel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 350px;
+            height: 100vh;
+            background: #ffffff; /* Latar belakang diubah menjadi putih */
+            z-index: 1001;
+            box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #e0e0e0; /* Garis pemisah terang */
+        }
+
+        .panel-header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0; /* Garis pemisah terang */
+        }
+        .panel-header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: #ff6b35;
+        }
+
+        .stats-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0; /* Garis pemisah terang */
+        }
+        .stat-box {
+            background: #f8f9fa; /* Latar belakang abu-abu sangat terang */
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-box .value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .stat-box .label {
+            font-size: 0.9rem;
+            color: #6c757d; /* Warna label diubah menjadi gelap */
+        }
+        #stat-online .value { color: #27ae60; }
+        #stat-offline .value { color: #e74c3c; }
+        #stat-total .value { color: #3498db; }
+        #stat-users .value { color: #f39c12; }
+
+        .search-filter {
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0; /* Garis pemisah terang */
+        }
+        .search-filter input {
+            width: 100%;
+            background: #fff; /* Input field putih */
+            border: 1px solid #ccc; /* Border terang */
+            border-radius: 5px;
+            padding: 10px;
+            color: #333; /* Warna teks input gelap */
+            font-size: 1rem;
+        }
+
+        .offline-list-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 0 20px 20px 20px;
+        }
+        .offline-list-container h3 {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #e74c3c;
+        }
+        .offline-list-item {
+            background: rgba(231, 76, 60, 0.1);
+            border-left: 3px solid #e74c3c;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .offline-list-item:hover {
+            background: rgba(231, 76, 60, 0.2);
+        }
+        .offline-list-item .name { font-weight: 500; }
+        .offline-list-item .location { font-size: 0.85rem; color: #6c757d; } /* Warna lokasi diubah menjadi gelap */
+
+        /* Tombol Navigasi Atas - Disesuaikan untuk Tema Terang */
+        .top-nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1002;
+            display: flex;
+            gap: 15px;
+        }
+        .nav-btn {
+            background: #ffffff; /* Tombol putih */
+            border: 1px solid #e0e0e0; /* Border terang */
+            color: #555; /* Ikon gelap */
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .nav-btn:hover {
+            background: #ff6b35;
+            color: white;
+            border-color: #ff6b35;
+        }
+        .nav-btn .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Efek Sonar/Pulse untuk Marker yang Berubah Status */
+        @keyframes sonar-ping {
+            0% { transform: scale(1); opacity: 1; }
+            80% { transform: scale(2.5); opacity: 0; }
+            100% { opacity: 0; }
+        }
+        .sonar-ping-emitter {
+            position: relative;
+        }
+        .sonar-ping-emitter::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            background-color: currentColor;
+            transform: translate(-50%, -50%);
+            animation: sonar-ping 1.5s ease-out infinite;
+        }
+    </style>
 </head>
 <body>
-  <!-- Hamburger Menu Button -->
-  <button id="hamburgerBtn" class="hamburger-btn" title="Menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-  <!-- Sidebar Menu -->
-  <div id="sidebarMenu" class="sidebar-menu">
-    <div class="sidebar-header">Menu</div>
-    <ul class="sidebar-list">
-      <li><a href="/dashboard">Dashboard</a></li>
-      <li><a href="/admin">Data ONT</a></li>
-      <li><a href="/notifications">Notifikasi</a></li>
-    </ul>
-    <div class="sidebar-history-header">Histori Notifikasi</div>
-        <div id="sidebarNotifHistory" class="sidebar-history-list"></div>
-  </div>
-  
-  <!-- Fit Area Button -->
-  <button id="fitAreaBtn" class="fit-area-btn" title="Kembali ke Fit Area">
-    Fit Area
-  </button>
-  
-  <!-- Notification Icon -->
-  <button id="notificationIcon" class="notification-icon" title="Notifikasi" onclick="window.location.href='/notifications'">
-    🔔
-    <span class="badge" id="notificationBadge">0</span>
-  </button>
- 
-  <div id="map"></div>
-  
-  <div id="notif" class="notif"></div>
-  
-      <div id="notifList" class="notif-list">
-      <div class="notif-list-header">
-        Notifikasi
-        <div>
-          <button id="notifClearBtn" class="notif-clear-btn">Clear All</button>
+    
+    <div class="side-panel">
+        <div class="panel-header">
+            <h1>ONT Command Center</h1>
         </div>
-      </div>
-      <div id="notifListItems"></div>
+        <div class="stats-overview">
+            <div class="stat-box" id="stat-total">
+                <div class="value">-</div>
+                <div class="label">Total ONT</div>
+            </div>
+            <div class="stat-box" id="stat-online">
+                <div class="value">-</div>
+                <div class="label">Online</div>
+            </div>
+            <div class="stat-box" id="stat-offline">
+                <div class="value">-</div>
+                <div class="label">Offline</div>
+            </div>
+            <div class="stat-box" id="stat-users">
+                <div class="value">-</div>
+                <div class="label">Users Aktif</div>
+            </div>
+        </div>
+        <div class="search-filter">
+            <input type="text" id="searchONT" placeholder="Cari nama atau lokasi ONT...">
+        </div>
+        <div class="offline-list-container">
+            <h3><i class="fas fa-triangle-exclamation"></i> Daftar ONT Offline</h3>
+            <div id="offline-list">
+                <p style="color: #aaa; text-align: center; margin-top: 20px;">Semua perangkat online.</p>
+            </div>
+        </div>
     </div>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-  <script>
-    const map = L.map('map').setView([-7.797068, 110.370529], 10);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-    let markers = [];
-    let lastStatus = {};
-    let notifHistory = [];
-    let allCoordinates = []; // Simpan semua koordinat global
-    let isFirstLoad = true; // Flag untuk menandai load pertama kali
 
-    function showNotif(msg, isOn) {
-      const notif = document.getElementById('notif');
-      notif.innerHTML = msg;
-      notif.className = 'notif' + (isOn ? ' on' : '');
-      notif.style.display = 'block';
-      setTimeout(() => { notif.style.display = 'none'; }, 4000);
-    }
+    <div class="top-nav">
+        <a href="/dashboard" class="nav-btn" title="Dashboard"><i class="fas fa-tachometer-alt"></i></a>
+        <a href="/admin" class="nav-btn" title="Daftar ONT"><i class="fas fa-list"></i></a>
+        <a href="/analytics" class="nav-btn" title="Analitik"><i class="fas fa-chart-pie"></i></a>
+        <a href="/notifications" class="nav-btn" title="Notifikasi" style="position: relative;">
+            <i class="fas fa-bell"></i>
+            <span class="badge" id="notificationBadge" style="display: none;">0</span>
+        </a>
+    </div>
 
-    function addNotifHistory(msg, isOn) {
-      notifHistory.unshift({
-        msg,
-        isOn,
-        time: new Date().toLocaleTimeString()
-      });
-      updateNotifList();
-      
-      // Update notification badge
-      updateNotificationBadge();
-      
-      // Kirim notifikasi ke server untuk disimpan
-      fetch('/api/notifications', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: msg.replace(/<[^>]*>/g, ''), // Hapus HTML tags
-          type: isOn ? 'success' : 'warning',
-          timestamp: new Date().toISOString()
-        })
-      }).catch(error => console.error('Error saving notification:', error));
-    }
+    <div id="map"></div>
 
-    function updateNotifList() {
-      const notifListItems = document.getElementById('notifListItems');
-      notifListItems.innerHTML = notifHistory.length === 0 ? '<div style="padding:16px;color:#aaa;">Belum ada notifikasi</div>' :
-        notifHistory.map(n => `<div class='notif-list-item'>${n.msg}<div class='notif-list-time'>${n.time}</div></div>`).join('');
-    }
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
 
-        document.getElementById('notifClearBtn').addEventListener('click', function() {
-      notifHistory = [];
-      updateNotifList();
-      updateNotificationBadge(); // Update badge setelah clear
-    });
+    <script>
+        // Inisialisasi Peta dengan Tema Gelap
+        const map = L.map('map').setView([-7.797068, 110.370529], 10);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 20
+        }).addTo(map);
 
-    function loadONTs() {
-      fetch('/api/onts')
-        .then(res => res.json())
-        .then(data => {
-          markers.forEach(m => map.removeLayer(m));
-          markers = [];
-          
-          // Array untuk menyimpan semua koordinat untuk fit bounds
-          let coordinates = [];
+        let allOntData = [];
+        let markers = L.layerGroup();
+        let lastStatus = {};
+        let isFirstLoad = true;
 
-          data.forEach(ont => {
-            // Tentukan warna berdasarkan Icon dan status
-            let onColor, offColor;
-            
-            if (ont.Icon === 119) {
-              // Icon 119: Biru ketika hidup, Merah ketika mati
-              onColor = "#3498db";  // Biru
-              offColor = "#e74c3c"; // Merah
-            } else if (ont.Icon === 155) {
-              // Icon 155: Hijau ketika hidup, Oranye ketika mati
-              onColor = "#27ae60";  // Hijau
-              offColor = "#ff6b35"; // Oranye
+        function updateStats(onts) {
+            const total = onts.length;
+            const online = onts.filter(ont => ont.status.startsWith("ON")).length;
+            document.getElementById('stat-total').querySelector('.value').textContent = total;
+            document.getElementById('stat-online').querySelector('.value').textContent = online;
+            document.getElementById('stat-offline').querySelector('.value').textContent = total - online;
+
+            const offlineList = document.getElementById('offline-list');
+            const offlineOnts = onts.filter(ont => !ont.status.startsWith("ON"));
+            offlineList.innerHTML = '';
+            if (offlineOnts.length > 0) {
+                offlineOnts.forEach(ont => {
+                    const item = document.createElement('div');
+                    item.className = 'offline-list-item';
+                    item.innerHTML = `<div class="name">${ont.name}</div><div class="location">${ont.lokasi || ''}</div>`;
+                    item.onclick = () => {
+                        map.setView([ont.latitude, ont.longitude], 18);
+                    };
+                    offlineList.appendChild(item);
+                });
             } else {
-              // Default: Hijau ketika hidup, Merah ketika mati
-              onColor = "#27ae60";  // Hijau
-              offColor = "#e74c3c"; // Merah
+                offlineList.innerHTML = '<p style="color: #aaa; text-align: center; margin-top: 20px;">Semua perangkat online.</p>';
             }
-            
-            // Pilih icon marker SVG modern sesuai status dan warna yang ditentukan
-            const iconHtml = ont.status.startsWith("ON")
-              ? `
-                <svg width="32" height="32" viewBox="0 0 64 64">
-                  <circle cx="32" cy="32" r="30" fill="${onColor}"/>
-                  <path d="M12 26C20 18 44 18 52 26" stroke="white" stroke-width="4" fill="none" />
-                  <path d="M18 32C24 26 40 26 46 32" stroke="white" stroke-width="4" fill="none" />
-                  <path d="M24 38C28 34 36 34 40 38" stroke="white" stroke-width="4" fill="none" />
-                  <circle cx="32" cy="46" r="3" fill="white" />
-                </svg>
-              `
-              : `
-                <svg width="32" height="32" viewBox="0 0 64 64">
-                  <circle cx="32" cy="32" r="30" fill="${offColor}"/>
-                  <path d="M12 26C20 18 44 18 52 26" stroke="white" stroke-width="4" fill="none" />
-                  <path d="M18 32C24 26 40 26 46 32" stroke="white" stroke-width="4" fill="none" />
-                  <path d="M24 38C28 34 36 34 40 38" stroke="white" stroke-width="4" fill="none" />
-                  <line x1="18" y1="18" x2="46" y2="46" stroke="white" stroke-width="4" />
-                </svg>
-              `;
-
-            const icon = L.divIcon({
-              html: iconHtml,
-              iconSize: [32, 32],
-              className: ''
+        }
+        
+        function getMikrotikUserCount() {
+            // Asumsikan data ini diambil dari history.json
+            fetch('/api/history').then(res => res.json()).then(data => {
+                if (data.length > 0) {
+                    document.getElementById('stat-users').querySelector('.value').textContent = data[data.length - 1].users;
+                } else {
+                    document.getElementById('stat-users').querySelector('.value').textContent = '0';
+                }
             });
-
-            // Notifikasi jika status berubah
-            if (lastStatus[ont.id] && lastStatus[ont.id] !== ont.status) {
-              if (!ont.status.startsWith("ON")) {
-                showNotif(`<b>${ont.name}</b> (${ont.lokasi || ''})<br>Status: <span style='color:${offColor};'>${ont.status}</span>`, false);
-                addNotifHistory(`<b>${ont.name}</b> (${ont.lokasi || ''})<br>Status: <span style='color:${offColor};'>${ont.status}</span>`, false);
-              } else {
-                showNotif(`<b>${ont.name}</b> (${ont.lokasi || ''})<br>Status: <span style='color:${onColor};'>${ont.status}</span>`, true);
-                addNotifHistory(`<b>${ont.name}</b> (${ont.lokasi || ''})<br>Status: <span style='color:${onColor};'>${ont.status}</span>`, true);
-              }
+        }
+        
+        function applySonarEffect(marker, color) {
+            const iconDiv = marker._icon;
+            if (iconDiv) {
+                iconDiv.style.color = color;
+                iconDiv.classList.add('sonar-ping-emitter');
+                setTimeout(() => {
+                    if (iconDiv) iconDiv.classList.remove('sonar-ping-emitter');
+                }, 3000);
             }
-            lastStatus[ont.id] = ont.status;
+        }
 
-            const marker = L.marker([ont.latitude, ont.longitude], { icon }).addTo(map);
-            marker.bindPopup(`<strong>${ont.kategori_nama}</strong><br>${ont.nama}<br>Status: ${ont.status}`);
-            markers.push(marker);
-            
-            // Tambahkan koordinat ke array untuk fit bounds
-            coordinates.push([ont.latitude, ont.longitude]);
+        function renderMarkers(onts) {
+            markers.clearLayers();
 
-            // Tooltip untuk hover: tampilkan hanya name
-            marker.bindTooltip(ont.name, {permanent: false, direction: 'top'});
+            onts.forEach(ont => {
+                let onColor, offColor;
+                if (ont.Icon === 119) {
+                    onColor = "#3498db"; offColor = "#e74c3c";
+                } else if (ont.Icon === 155) {
+                    onColor = "#27ae60"; offColor = "#ff6b35";
+                } else {
+                    onColor = "#27ae60"; offColor = "#e74c3c";
+                }
+                
+                const isOnline = ont.status.startsWith("ON");
+                const color = isOnline ? onColor : offColor;
 
-            // Bind popup hanya sekali
-            let popupContent = `<b>${ont.name}</b>`;
-            if (ont.lokasi && ont.lokasi.trim() !== '') {
-              popupContent += `<br><span style='font-size: 0.95em; color: #555;'>${ont.lokasi}</span>`;
-            }
-            popupContent += `<br>IP: <a href='http://${ont.ip}' target='_blank' style='color:#2980b9;text-decoration:underline;'>${ont.ip}</a><br>Status: <span style='color:${ont.status.startsWith("ON") ? onColor : offColor};'>${ont.status}</span>`;
-            // Info terakhir ON hanya dari hasil ping terbaru (field last_on di onts.json)
-            if (ont.status.toUpperCase() !== "ON") {
-              if (ont.last_on) {
-                const dt = ont.last_on.split('T');
-                const tgl = dt[0].split('-');
-                const jam = dt[1];
-                popupContent += `<br><span style='color:#e67e22;font-size:0.95em;'>Terakhir ON: ${tgl[2]}/${tgl[1]}/${tgl[0]} ${jam}</span>`;
-              } else {
-                popupContent += `<br><span style='color:#e67e22;font-size:0.95em;'>Terakhir ON: -</span>`;
-              }
-            }
-            marker.bindPopup(popupContent);
+                const iconHtml = `
+                    <div style="
+                        background-color: ${color};
+                        width: 29px; height: 29px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        /* border: none; */
+                        box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sedikit bayangan */
+                        color: #ffffff; /* Warna ikon putih */
+                        font-size: 1 rem;
+                    ">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                `;
+                const icon = L.divIcon({
+                    html: iconHtml,
+                    iconSize: [24, 24],
+                    className: ''
+                });
 
-            // Saat klik, buka popup
-            marker.on('click', function() {
-              marker.openPopup();
+                const marker = L.marker([ont.latitude, ont.longitude], { icon });
+
+                // Popup
+                let popupContent = `<b>${ont.name}</b>`;
+                if (ont.lokasi) popupContent += `<br><span style='font-size: 0.9em; color: #aaa;'>${ont.lokasi}</span>`;
+                popupContent += `<br>IP: <a href='http://${ont.ip}' target='_blank' style='color:#3498db;'>${ont.ip}</a>`;
+                popupContent += `<br>Status: <span style='color:${color};'>${ont.status}</span>`;
+                marker.bindPopup(popupContent);
+
+                // Tampilkan popup saat mouse diarahkan (hover)
+                marker.on('mouseover', function (e) {
+                    this.openPopup();
+                });
+                // Sembunyikan popup saat mouse digeser pergi
+                marker.on('mouseout', function (e) {
+                    this.closePopup();
+                });
+
+                marker.addTo(markers);
+
+                // Cek perubahan status untuk efek sonar
+                if (lastStatus[ont.id] !== undefined && lastStatus[ont.id] !== isOnline) {
+                    applySonarEffect(marker, color);
+                }
+                lastStatus[ont.id] = isOnline;
             });
-          });
-          
-          // Fit map ke area yang mencakup semua marker dengan padding
-          if (coordinates.length > 0) {
-            allCoordinates = coordinates; // Simpan koordinat global
-            
-            // Hanya fit bounds saat pertama kali load
-            if (isFirstLoad) {
-              const bounds = L.latLngBounds(coordinates);
-              
-              // Padding yang sangat kecil untuk zoom yang sangat dekat
-              const paddedBounds = bounds.pad(0.01); 
-              
-              // fit
-              map.fitBounds(bounds, {
-                padding: [5, 5], // Padding minimal untuk zoom maksimal
-                maxZoom: 20, // Zoom maksimal sangat tinggi untuk detail maksimal
-                animate: true
-              });
-              
-              isFirstLoad = false; // Set flag ke false setelah fit bounds pertama kali
+            map.addLayer(markers);
+        }
+
+        function loadAllData() {
+            fetch('/api/onts')
+                .then(res => res.json())
+                .then(data => {
+                    allOntData = data;
+                    updateStats(data);
+                    renderMarkers(data);
+                    if (isFirstLoad && data.length > 0) {
+                const coordinates = data.map(ont => [ont.latitude, ont.longitude]);
+                const bounds = L.latLngBounds(coordinates);
+                map.fitBounds(bounds, { padding: [50, 50] }); // Padding agar tidak terlalu mepet
+                isFirstLoad = false; // Pastikan ini hanya berjalan sekali
             }
-          }
+                });
+            getMikrotikUserCount();
+        }
+
+        document.getElementById('searchONT').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredOnts = allOntData.filter(ont => 
+                (ont.name && ont.name.toLowerCase().includes(searchTerm)) ||
+                (ont.lokasi && ont.lokasi.toLowerCase().includes(searchTerm))
+            );
+            renderMarkers(filteredOnts);
         });
-    }
 
-    loadONTs(); 
-    setInterval(loadONTs, 5000);
-    
-    // Initialize notification badge
-    updateNotificationBadge();
-    
-    // Fit area button functionality (kembalikan ke tampilan awal)
-    document.getElementById('fitAreaBtn').addEventListener('click', function() {
-      if (allCoordinates.length > 0) {
-        const bounds = L.latLngBounds(allCoordinates);
-        map.fitBounds(bounds, {
-          padding: [5, 5],
-          maxZoom: 20,
-          animate: true
-        });
-        showNotif('Map berhasil dikembalikan ke fit area', true);
-      } else {
-        showNotif('Tidak ada marker untuk fit area', false);
-      }
-    });
-    
-    
-    // Update notification badge count
-    function updateNotificationBadge() {
-      const badge = document.getElementById('notificationBadge');
-      const count = notifHistory.length;
-      badge.textContent = count;
-      
-      // Hide badge if no notifications
-      if (count === 0) {
-        badge.style.display = 'none';
-      } else {
-        badge.style.display = 'flex';
-      }
-    }
-  </script>
-<script>
-  // Tunggu DOM siap
-  document.addEventListener('DOMContentLoaded', function() {
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const sidebarMenu = document.getElementById('sidebarMenu');
+        // Initial Load dan Interval
+        loadAllData();
+        setInterval(loadAllData, 5000); // Refresh data setiap 5 detik
 
-    if (!hamburgerBtn || !sidebarMenu) {
-      console.error("Elemen #hamburgerBtn atau #sidebarMenu tidak ditemukan!");
-      return;
-    }
-
-    // Toggle sidebar
-    hamburgerBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      sidebarMenu.classList.toggle('open');
-
-      // Sembunyikan tombol saat sidebar terbuka
-      if (sidebarMenu.classList.contains('open')) {
-        hamburgerBtn.style.opacity = '0';
-        setTimeout(() => { hamburgerBtn.style.display = 'none'; }, 300);
-      } else {
-        hamburgerBtn.style.display = 'flex';
-        hamburgerBtn.style.opacity = '1';
-      }
-    });
-
-    // Tutup sidebar saat klik di luar
-    document.addEventListener('click', function(e) {
-      if (!sidebarMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
-        sidebarMenu.classList.remove('open');
-        hamburgerBtn.style.display = 'flex';
-        setTimeout(() => { hamburgerBtn.style.opacity = '1'; }, 10);
-      }
-    });
-
-    // === Update Notifikasi di Sidebar ===
-    function updateSidebarNotifHistory() {
-      const sidebarNotifHistory = document.getElementById('sidebarNotifHistory');
-      if (!window.notifHistory || !Array.isArray(window.notifHistory) || window.notifHistory.length === 0) {
-        sidebarNotifHistory.innerHTML = '<div style="color:#aaa; padding:12px 0;">Belum ada notifikasi</div>';
-        return;
-      }
-      sidebarNotifHistory.innerHTML = window.notifHistory.map(n =>
-        `<div class='sidebar-history-item'>${n.msg}<div class='sidebar-history-time'>${n.time}</div></div>`
-      ).join('');
-    }
-
-    // Patch addNotifHistory agar update sidebar
-    if (typeof window.addNotifHistory === 'function') {
-      const original = window.addNotifHistory;
-      window.addNotifHistory = function(msg, isOn) {
-        original(msg, isOn); // Jalankan fungsi asli
-        updateSidebarNotifHistory(); // Update sidebar
-      };
-    } else {
-      console.warn("window.addNotifHistory tidak ditemukan!");
-    }
-
-    // Render awal
-    updateSidebarNotifHistory();
-  });
-</script>
+    </script>
 </body>
 </html>
