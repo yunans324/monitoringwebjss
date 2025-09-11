@@ -1,231 +1,331 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>ONT Command Center - LIFE MEDIA</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='icons/logo.png') }}">
-    
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='icons/logo.png') }}"
+    />
+
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: #f8f9fb;
-            margin: 0;
-            color: #333; /* Warna teks utama diubah menjadi gelap */
-            overflow: hidden;
-        }
+      body {
+        font-family: "Roboto", sans-serif;
+        background: #f8f9fb;
+        margin: 0;
+        color: #333;
+        overflow: hidden;
+      }
 
-        #map { 
-            height: 100vh; 
-            width: 100vw;
-            background-color: #f0f0f0;
-        }
+      /* PERUBAHAN UTAMA PADA LAYOUT */
+      #map {
+        height: 100vh;
+        width: 100%; /* Lebar diubah agar bisa beradaptasi */
+        background-color: #f0f0f0;
+        padding-left: 350px; /* Memberi ruang untuk side panel */
+        transition: padding-left 0.35s ease-in-out; /* Animasi halus saat map bergeser */
+        box-sizing: border-box; /* Pastikan padding tidak menambah lebar total */
+      }
+      body.sidebar-collapsed #map {
+        padding-left: 0; /* Map memenuhi layar saat panel tertutup */
+      }
 
-        /* Panel Samping - Tema Terang */
-        .side-panel {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 350px;
-            height: 100vh;
-            background: #ffffff; /* Latar belakang diubah menjadi putih */
-            z-index: 1001;
-            box-shadow: 5px 0 15px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            border-right: 1px solid #e0e0e0; /* Garis pemisah terang */
-        }
+      /* Panel Samping - Dibuat agar bisa slide */
+      .side-panel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 350px;
+        height: 100vh;
+        background: #ffffff;
+        z-index: 1001;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #e0e0e0;
+        transform: translateX(0); /* Posisi awal */
+        transition: transform 0.35s ease-in-out; /* Animasi slide */
+      }
+      body.sidebar-collapsed .side-panel {
+        transform: translateX(-100%); /* Geser panel ke kiri hingga hilang */
+      }
 
-        .panel-header {
-            padding: 20px;
-            text-align: center;
-            border-bottom: 1px solid #e0e0e0; /* Garis pemisah terang */
-        }
-        .panel-header h1 {
-            font-size: 1.8rem;
-            margin: 0;
-            color: #ff6b35;
-        }
+      /* CSS BARU UNTUK TOMBOL BUKA/TUTUP */
+      #toggle-sidebar-btn {
+        position: fixed;
+        top: 50%;
+        left: 350px; /* Posisi awal menempel di kanan panel */
+        transform: translateY(-50%);
+        width: 25px;
+        height: 80px;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-left: none;
+        border-radius: 0 10px 10px 0;
+        z-index: 1002;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: #555;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        transition: left 0.35s ease-in-out, background-color 0.2s, color 0.2s;
+      }
+      #toggle-sidebar-btn:hover {
+        background-color: #ff6b35;
+        color: white;
+      }
+      body.sidebar-collapsed #toggle-sidebar-btn {
+        left: 0; /* Posisi saat panel tertutup */
+      }
+      #toggle-sidebar-btn .arrow-icon {
+        transition: transform 0.35s ease;
+      }
+      body.sidebar-collapsed #toggle-sidebar-btn .arrow-icon {
+        transform: rotate(180deg); /* Panah berputar */
+      }
 
-        .stats-overview {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            padding: 20px;
-            border-bottom: 1px solid #e0e0e0; /* Garis pemisah terang */
+      /* Sisa CSS Anda (tidak diubah) */
+      .panel-header {
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      .panel-header h1 {
+        font-size: 1.8rem;
+        margin: 0;
+        color: #ff6b35;
+      }
+      .stats-overview {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 20px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      .stat-box {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+      }
+      .stat-box .value {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+      .stat-box .label {
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+      #stat-online .value {
+        color: #27ae60;
+      }
+      #stat-offline .value {
+        color: #e74c3c;
+      }
+      #stat-total .value {
+        color: #3498db;
+      }
+      #stat-users .value {
+        color: #f39c12;
+      }
+      .search-filter {
+        padding: 20px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      .search-filter input {
+        width: 100%;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        color: #333;
+        font-size: 1rem;
+      }
+      .offline-list-container {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 0 20px 20px 20px;
+      }
+      .offline-list-container h3 {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        color: #e74c3c;
+      }
+      .offline-list-item {
+        background: rgba(231, 76, 60, 0.1);
+        border-left: 3px solid #e74c3c;
+        padding: 10px;
+        margin-bottom: 8px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+      .offline-list-item:hover {
+        background: rgba(231, 76, 60, 0.2);
+      }
+      .offline-list-item .name {
+        font-weight: 500;
+      }
+      .offline-list-item .location {
+        font-size: 0.85rem;
+        color: #6c757d;
+      }
+      .top-nav {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1002;
+        display: flex;
+        gap: 15px;
+      }
+      .nav-btn {
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        color: #555;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .nav-btn:hover {
+        background: #ff6b35;
+        color: white;
+        border-color: #ff6b35;
+      }
+      .nav-btn .badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #e74c3c;
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @keyframes sonar-ping {
+        0% {
+          transform: scale(1);
+          opacity: 1;
         }
-        .stat-box {
-            background: #f8f9fa; /* Latar belakang abu-abu sangat terang */
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
+        80% {
+          transform: scale(2.5);
+          opacity: 0;
         }
-        .stat-box .value {
-            font-size: 2rem;
-            font-weight: 700;
+        100% {
+          opacity: 0;
         }
-        .stat-box .label {
-            font-size: 0.9rem;
-            color: #6c757d; /* Warna label diubah menjadi gelap */
-        }
-        #stat-online .value { color: #27ae60; }
-        #stat-offline .value { color: #e74c3c; }
-        #stat-total .value { color: #3498db; }
-        #stat-users .value { color: #f39c12; }
-
-        .search-filter {
-            padding: 20px;
-            border-bottom: 1px solid #e0e0e0; /* Garis pemisah terang */
-        }
-        .search-filter input {
-            width: 100%;
-            background: #fff; /* Input field putih */
-            border: 1px solid #ccc; /* Border terang */
-            border-radius: 5px;
-            padding: 10px;
-            color: #333; /* Warna teks input gelap */
-            font-size: 1rem;
-        }
-
-        .offline-list-container {
-            flex-grow: 1;
-            overflow-y: auto;
-            padding: 0 20px 20px 20px;
-        }
-        .offline-list-container h3 {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            color: #e74c3c;
-        }
-        .offline-list-item {
-            background: rgba(231, 76, 60, 0.1);
-            border-left: 3px solid #e74c3c;
-            padding: 10px;
-            margin-bottom: 8px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-        .offline-list-item:hover {
-            background: rgba(231, 76, 60, 0.2);
-        }
-        .offline-list-item .name { font-weight: 500; }
-        .offline-list-item .location { font-size: 0.85rem; color: #6c757d; } /* Warna lokasi diubah menjadi gelap */
-
-        /* Tombol Navigasi Atas - Disesuaikan untuk Tema Terang */
-        .top-nav {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1002;
-            display: flex;
-            gap: 15px;
-        }
-        .nav-btn {
-            background: #ffffff; /* Tombol putih */
-            border: 1px solid #e0e0e0; /* Border terang */
-            color: #555; /* Ikon gelap */
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .nav-btn:hover {
-            background: #ff6b35;
-            color: white;
-            border-color: #ff6b35;
-        }
-        .nav-btn .badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: #e74c3c;
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* Efek Sonar/Pulse untuk Marker yang Berubah Status */
-        @keyframes sonar-ping {
-            0% { transform: scale(1); opacity: 1; }
-            80% { transform: scale(2.5); opacity: 0; }
-            100% { opacity: 0; }
-        }
-        .sonar-ping-emitter {
-            position: relative;
-        }
-        .sonar-ping-emitter::after {
-            content: '';
-            position: absolute;
-            top: 50%; left: 50%;
-            width: 16px; height: 16px;
-            border-radius: 50%;
-            background-color: currentColor;
-            transform: translate(-50%, -50%);
-            animation: sonar-ping 1.5s ease-out infinite;
-        }
+      }
+      .sonar-ping-emitter {
+        position: relative;
+      }
+      .sonar-ping-emitter::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: currentColor;
+        transform: translate(-50%, -50%);
+        animation: sonar-ping 1.5s ease-out infinite;
+      }
     </style>
-</head>
-<body>
-    
+  </head>
+  <body class="sidebar-collapsed">
+    <div id="toggle-sidebar-btn" title="Buka/Tutup Panel">
+      <i class="fas fa-chevron-left arrow-icon"></i>
+    </div>
+
     <div class="side-panel">
-        <div class="panel-header">
-            <h1>ONT Command Center</h1>
+      <div class="panel-header">
+        <h1>ONT Command Center</h1>
+      </div>
+      <div class="stats-overview">
+        <div class="stat-box" id="stat-total">
+          <div class="value">-</div>
+          <div class="label">Total ONT</div>
         </div>
-        <div class="stats-overview">
-            <div class="stat-box" id="stat-total">
-                <div class="value">-</div>
-                <div class="label">Total ONT</div>
-            </div>
-            <div class="stat-box" id="stat-online">
-                <div class="value">-</div>
-                <div class="label">Online</div>
-            </div>
-            <div class="stat-box" id="stat-offline">
-                <div class="value">-</div>
-                <div class="label">Offline</div>
-            </div>
-            <div class="stat-box" id="stat-users">
-                <div class="value">-</div>
-                <div class="label">Users Aktif</div>
-            </div>
+        <div class="stat-box" id="stat-online">
+          <div class="value">-</div>
+          <div class="label">Online</div>
         </div>
-        <div class="search-filter">
-            <input type="text" id="searchONT" placeholder="Cari nama atau lokasi ONT...">
+        <div class="stat-box" id="stat-offline">
+          <div class="value">-</div>
+          <div class="label">Offline</div>
         </div>
-        <div class="offline-list-container">
-            <h3><i class="fas fa-triangle-exclamation"></i> Daftar ONT Offline</h3>
-            <div id="offline-list">
-                <p style="color: #aaa; text-align: center; margin-top: 20px;">Semua perangkat online.</p>
-            </div>
+        <div class="stat-box" id="stat-users">
+          <div class="value">-</div>
+          <div class="label">Users Aktif</div>
         </div>
+      </div>
+      <div class="search-filter">
+        <input
+          type="text"
+          id="searchONT"
+          placeholder="Cari nama atau lokasi ONT..."
+        />
+      </div>
+      <div class="offline-list-container">
+        <h3><i class="fas fa-triangle-exclamation"></i> Daftar ONT Offline</h3>
+        <div id="offline-list">
+          <p style="color: #aaa; text-align: center; margin-top: 20px">
+            Semua perangkat online.
+          </p>
+        </div>
+      </div>
     </div>
 
     <div class="top-nav">
-        <a href="/dashboard" class="nav-btn" title="Dashboard"><i class="fas fa-tachometer-alt"></i></a>
-        <a href="/admin" class="nav-btn" title="Daftar ONT"><i class="fas fa-list"></i></a>
-        <a href="/analytics" class="nav-btn" title="Analitik"><i class="fas fa-chart-pie"></i></a>
-        <a href="/notifications" class="nav-btn" title="Notifikasi" style="position: relative;">
-            <i class="fas fa-bell"></i>
-            <span class="badge" id="notificationBadge" style="display: none;">0</span>
-        </a>
+      <a href="/dashboard" class="nav-btn" title="Dashboard"
+        ><i class="fas fa-tachometer-alt"></i
+      ></a>
+      <a href="/admin" class="nav-btn" title="Daftar ONT"
+        ><i class="fas fa-list"></i
+      ></a>
+      <a href="/analytics" class="nav-btn" title="Analitik"
+        ><i class="fas fa-chart-pie"></i
+      ></a>
+      <a
+        href="/notifications"
+        class="nav-btn"
+        title="Notifikasi"
+        style="position: relative"
+      >
+        <i class="fas fa-bell"></i>
+        <span class="badge" id="notificationBadge" style="display: none"
+          >0</span
+        >
+      </a>
     </div>
 
     <div id="map"></div>
@@ -234,162 +334,239 @@
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
 
     <script>
-        // Inisialisasi Peta dengan Tema Gelap
-        const map = L.map('map').setView([-7.797068, 110.370529], 10);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            maxZoom: 20
-        }).addTo(map);
+      // SCRIPT BAWAAN ANDA DIMULAI DI SINI
+      const map = L.map("map").setView([-7.797068, 110.370529], 10);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 20,
+      }).addTo(map);
 
-        let allOntData = [];
-        let markers = L.layerGroup();
-        let lastStatus = {};
-        let isFirstLoad = true;
+      let allOntData = [];
+      let markers = L.layerGroup();
+      let lastStatus = {};
+      let isFirstLoad = true;
 
-        function updateStats(onts) {
-            const total = onts.length;
-            const online = onts.filter(ont => ont.status.startsWith("ON")).length;
-            document.getElementById('stat-total').querySelector('.value').textContent = total;
-            document.getElementById('stat-online').querySelector('.value').textContent = online;
-            document.getElementById('stat-offline').querySelector('.value').textContent = total - online;
+      // ... semua fungsi Anda (updateStats, getMikrotikUserCount, dll.) tetap sama ...
+      function updateStats(onts) {
+        const total = onts.length;
+        const online = onts.filter((ont) => ont.status.startsWith("ON")).length;
+        document
+          .getElementById("stat-total")
+          .querySelector(".value").textContent = total;
+        document
+          .getElementById("stat-online")
+          .querySelector(".value").textContent = online;
+        document
+          .getElementById("stat-offline")
+          .querySelector(".value").textContent = total - online;
 
-            const offlineList = document.getElementById('offline-list');
-            const offlineOnts = onts.filter(ont => !ont.status.startsWith("ON"));
-            offlineList.innerHTML = '';
-            if (offlineOnts.length > 0) {
-                offlineOnts.forEach(ont => {
-                    const item = document.createElement('div');
-                    item.className = 'offline-list-item';
-                    item.innerHTML = `<div class="name">${ont.name}</div><div class="location">${ont.lokasi || ''}</div>`;
-                    item.onclick = () => {
-                        map.setView([ont.latitude, ont.longitude], 18);
-                    };
-                    offlineList.appendChild(item);
-                });
+        const offlineList = document.getElementById("offline-list");
+        const offlineOnts = onts.filter((ont) => !ont.status.startsWith("ON"));
+        offlineList.innerHTML = "";
+        if (offlineOnts.length > 0) {
+          offlineOnts.forEach((ont) => {
+            const item = document.createElement("div");
+            item.className = "offline-list-item";
+            item.innerHTML = `<div class="name">${
+              ont.name
+            }</div><div class="location">${ont.lokasi || ""}</div>`;
+            item.onclick = () => {
+              map.setView([ont.latitude, ont.longitude], 18);
+            };
+            offlineList.appendChild(item);
+          });
+        } else {
+          offlineList.innerHTML =
+            '<p style="color: #aaa; text-align: center; margin-top: 20px;">Semua perangkat online.</p>';
+        }
+      }
+      function getMikrotikUserCount() {
+        fetch("/api/history")
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.length > 0) {
+              document
+                .getElementById("stat-users")
+                .querySelector(".value").textContent =
+                data[data.length - 1].users;
             } else {
-                offlineList.innerHTML = '<p style="color: #aaa; text-align: center; margin-top: 20px;">Semua perangkat online.</p>';
+              document
+                .getElementById("stat-users")
+                .querySelector(".value").textContent = "0";
             }
+          });
+      }
+      function applySonarEffect(marker, color) {
+        const iconDiv = marker._icon;
+        if (iconDiv) {
+          iconDiv.style.color = color;
+          iconDiv.classList.add("sonar-ping-emitter");
+          setTimeout(() => {
+            if (iconDiv) iconDiv.classList.remove("sonar-ping-emitter");
+          }, 3000);
         }
-        
-        function getMikrotikUserCount() {
-            // Asumsikan data ini diambil dari history.json
-            fetch('/api/history').then(res => res.json()).then(data => {
-                if (data.length > 0) {
-                    document.getElementById('stat-users').querySelector('.value').textContent = data[data.length - 1].users;
-                } else {
-                    document.getElementById('stat-users').querySelector('.value').textContent = '0';
-                }
-            });
-        }
-        
-        function applySonarEffect(marker, color) {
-            const iconDiv = marker._icon;
-            if (iconDiv) {
-                iconDiv.style.color = color;
-                iconDiv.classList.add('sonar-ping-emitter');
-                setTimeout(() => {
-                    if (iconDiv) iconDiv.classList.remove('sonar-ping-emitter');
-                }, 3000);
+      }
+      function renderMarkers(onts) {
+        markers.clearLayers();
+        onts.forEach((ont) => {
+          let onColor, offColor;
+          if (ont.Icon === 119) {
+            onColor = "#3498db";
+            offColor = "#e74c3c";
+          } else if (ont.Icon === 155) {
+            onColor = "#27ae60";
+            offColor = "#ff6b35";
+          } else {
+            onColor = "#27ae60";
+            offColor = "#e74c3c";
+          }
+
+          const isOnline = ont.status.startsWith("ON");
+          const color = isOnline ? onColor : offColor;
+          const iconHtml = `<div style="background-color:${color};width:29px;height:29px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 5px rgba(0,0,0,0.2);color:#ffffff;font-size:1rem;"><i class="fas fa-wifi"></i></div>`;
+          const icon = L.divIcon({
+            html: iconHtml,
+            iconSize: [24, 24],
+            className: "",
+          });
+          const marker = L.marker([ont.latitude, ont.longitude], { icon });
+
+          let popupContent = `<b>${ont.name}</b>`;
+          if (ont.lokasi)
+            popupContent += `<br><span style='font-size: 0.9em; color: #aaa;'>${ont.lokasi}</span>`;
+          popupContent += `<br>IP: <a href='http://${ont.ip}' target='_blank' style='color:#3498db;'>${ont.ip}</a>`;
+          popupContent += `<br>Status: <span style='color:${color};'>${ont.status}</span>`;
+          marker.bindPopup(popupContent);
+
+          marker.on("mouseover", function (e) {
+            this.openPopup();
+          });
+          marker.on("mouseout", function (e) {
+            this.closePopup();
+          });
+          marker.addTo(markers);
+
+          if (
+            lastStatus[ont.id] !== undefined &&
+            lastStatus[ont.id] !== isOnline
+          ) {
+            applySonarEffect(marker, color);
+          }
+          lastStatus[ont.id] = isOnline;
+        });
+        map.addLayer(markers);
+      }
+      function loadAllData() {
+        fetch("/api/onts")
+          .then((res) => res.json())
+          .then((data) => {
+            allOntData = data;
+            updateStats(data);
+            renderMarkers(data);
+            if (isFirstLoad && data.length > 0) {
+              const coordinates = data.map((ont) => [
+                ont.latitude,
+                ont.longitude,
+              ]);
+              const bounds = L.latLngBounds(coordinates);
+              map.fitBounds(bounds, { padding: [50, 50] });
+              isFirstLoad = false;
             }
-        }
+          });
+        getMikrotikUserCount();
+      }
+      document
+        .getElementById("searchONT")
+        .addEventListener("input", function (e) {
+          const searchTerm = e.target.value.toLowerCase();
+          const filteredOnts = allOntData.filter(
+            (ont) =>
+              (ont.name && ont.name.toLowerCase().includes(searchTerm)) ||
+              (ont.lokasi && ont.lokasi.toLowerCase().includes(searchTerm))
+          );
+          renderMarkers(filteredOnts);
+        });
+      loadAllData();
+      setInterval(loadAllData, 5000);
 
-        function renderMarkers(onts) {
-            markers.clearLayers();
+            // --- SCRIPT BARU UNTUK FUNGSI BUKA-TUTUP DENGAN LOCALSTORAGE ---
+     document.addEventListener("DOMContentLoaded", function () {
+  const toggleButton = document.getElementById("toggle-sidebar-btn");
 
-            onts.forEach(ont => {
-                let onColor, offColor;
-                if (ont.Icon === 119) {
-                    onColor = "#3498db"; offColor = "#e74c3c";
-                } else if (ont.Icon === 155) {
-                    onColor = "#27ae60"; offColor = "#ff6b35";
-                } else {
-                    onColor = "#27ae60"; offColor = "#e74c3c";
-                }
-                
-                const isOnline = ont.status.startsWith("ON");
-                const color = isOnline ? onColor : offColor;
+  // 🔹 Kalau terakhir tersimpan "expanded", hapus collapsed
+  if (localStorage.getItem("sidebar") === "expanded") {
+    document.body.classList.remove("sidebar-collapsed");
+  }
 
-                const iconHtml = `
-                    <div style="
-                        background-color: ${color};
-                        width: 29px; height: 29px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        /* border: none; */
-                        box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sedikit bayangan */
-                        color: #ffffff; /* Warna ikon putih */
-                        font-size: 1 rem;
-                    ">
-                        <i class="fas fa-wifi"></i>
-                    </div>
-                `;
-                const icon = L.divIcon({
-                    html: iconHtml,
-                    iconSize: [24, 24],
-                    className: ''
-                });
+  toggleButton.addEventListener("click", function () {
+    document.body.classList.toggle("sidebar-collapsed");
 
-                const marker = L.marker([ont.latitude, ont.longitude], { icon });
+    // 🔹 Simpan state ke localStorage
+    if (document.body.classList.contains("sidebar-collapsed")) {
+      localStorage.setItem("sidebar", "collapsed");
+    } else {
+      localStorage.setItem("sidebar", "expanded");
+    }
 
-                // Popup
-                let popupContent = `<b>${ont.name}</b>`;
-                if (ont.lokasi) popupContent += `<br><span style='font-size: 0.9em; color: #aaa;'>${ont.lokasi}</span>`;
-                popupContent += `<br>IP: <a href='http://${ont.ip}' target='_blank' style='color:#3498db;'>${ont.ip}</a>`;
-                popupContent += `<br>Status: <span style='color:${color};'>${ont.status}</span>`;
-                marker.bindPopup(popupContent);
+    // 🔹 Fix ukuran peta
+    setTimeout(function () {
+      map.invalidateSize();
+    }, 350);
+  });
+});
+// === Custom Control Legenda di Peta ===
+L.Control.LegendCustom = L.Control.extend({
+    onAdd: function(map) {
+        let div = L.DomUtil.create('div', 'leaflet-control-custom');
+        div.innerHTML = `
+            <div style="font-size:12px; line-height:1.4;">
+                <b>Legenda</b><br>
+                <span style="color:#27ae60;">●</span> CSR Online<br>
+                <span style="color:#ff6b35;">●</span> CSR Offline<br>
+                <span style="color:#3498db;">●</span> APBD Online<br>
+                <span style="color:#e74c3c;">●</span> APBD Offline
+            </div>
+        `;
+        return div;
+    },
+    onRemove: function(map) {}
+});
+// === Custom Control: Fit Area ===
+L.Control.FitArea = L.Control.extend({
+    onAdd: function(map) {
+        let container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+        let button = L.DomUtil.create('a', '', container);
+        button.innerHTML = '<i class="fas fa-expand-arrows-alt"></i>';
+        button.href = "#";
+        button.title = "Fit ke Semua Marker";
 
-                // Tampilkan popup saat mouse diarahkan (hover)
-                marker.on('mouseover', function (e) {
-                    this.openPopup();
-                });
-                // Sembunyikan popup saat mouse digeser pergi
-                marker.on('mouseout', function (e) {
-                    this.closePopup();
-                });
+        L.DomEvent.on(button, 'click', function (e) {
+            L.DomEvent.stopPropagation(e);
+            L.DomEvent.preventDefault(e);
 
-                marker.addTo(markers);
-
-                // Cek perubahan status untuk efek sonar
-                if (lastStatus[ont.id] !== undefined && lastStatus[ont.id] !== isOnline) {
-                    applySonarEffect(marker, color);
-                }
-                lastStatus[ont.id] = isOnline;
-            });
-            map.addLayer(markers);
-        }
-
-        function loadAllData() {
-            fetch('/api/onts')
-                .then(res => res.json())
-                .then(data => {
-                    allOntData = data;
-                    updateStats(data);
-                    renderMarkers(data);
-                    if (isFirstLoad && data.length > 0) {
-                const coordinates = data.map(ont => [ont.latitude, ont.longitude]);
-                const bounds = L.latLngBounds(coordinates);
-                map.fitBounds(bounds, { padding: [50, 50] }); // Padding agar tidak terlalu mepet
-                isFirstLoad = false; // Pastikan ini hanya berjalan sekali
+            if (typeof markers !== "undefined" && markers.getLayers().length > 0) {
+                let group = L.featureGroup(markers.getLayers());
+                map.fitBounds(group.getBounds().pad(0.2));
+            } else {
+                alert("Tidak ada marker untuk difit.");
             }
-                });
-            getMikrotikUserCount();
-        }
-
-        document.getElementById('searchONT').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const filteredOnts = allOntData.filter(ont => 
-                (ont.name && ont.name.toLowerCase().includes(searchTerm)) ||
-                (ont.lokasi && ont.lokasi.toLowerCase().includes(searchTerm))
-            );
-            renderMarkers(filteredOnts);
         });
 
-        // Initial Load dan Interval
-        loadAllData();
-        setInterval(loadAllData, 5000); // Refresh data setiap 5 detik
+        return container;
+    },
+    onRemove: function(map) {}
+});
+
+// === Tambahkan Legenda & Fit Area ke Peta ===
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof map !== "undefined") {
+        // tombol fit area muncul di pojok kiri atas (sejajar zoom in/out)
+        new L.Control.FitArea({ position: 'topleft' }).addTo(map);
+        new L.Control.LegendCustom({ position: 'bottomleft' }).addTo(map);
+    }
+});
 
     </script>
-</body>
+  </body>
 </html>
