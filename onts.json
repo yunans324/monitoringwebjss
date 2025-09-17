@@ -10,7 +10,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:28"
+    "last_on": "2025-09-17T10:34:00"
   },
   {
     "id": 2,
@@ -21,7 +21,7 @@
     "latitude": -7.795833,
     "longitude": 110.380222,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 119,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -36,7 +36,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:29"
+    "last_on": "2025-09-17T10:34:03"
   },
   {
     "id": 4,
@@ -47,7 +47,7 @@
     "latitude": -7.79749,
     "longitude": 110.378929,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 155,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -62,7 +62,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:30"
+    "last_on": "2025-09-17T10:34:06"
   },
   {
     "id": 6,
@@ -75,7 +75,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:30"
+    "last_on": "2025-09-17T10:34:06"
   },
   {
     "id": 7,
@@ -88,7 +88,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:30"
+    "last_on": "2025-09-17T10:34:06"
   },
   {
     "id": 8,
@@ -101,7 +101,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:30"
+    "last_on": "2025-09-17T10:34:06"
   },
   {
     "id": 9,
@@ -114,7 +114,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:30"
+    "last_on": "2025-09-17T10:34:07"
   },
   {
     "id": 10,
@@ -127,7 +127,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:30"
+    "last_on": "2025-09-17T10:34:07"
   },
   {
     "id": 11,
@@ -140,7 +140,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-17T10:34:07"
   },
   {
     "id": 12,
@@ -153,7 +153,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-17T10:34:07"
   },
   {
     "id": 13,
@@ -166,7 +166,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-17T10:34:07"
   },
   {
     "id": 14,
@@ -179,7 +179,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-17T10:34:08"
   },
   {
     "id": 15,
@@ -192,7 +192,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-17T10:34:08"
   },
   {
     "id": 16,
@@ -205,7 +205,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-17T10:34:08"
   },
   {
     "id": 17,
@@ -215,10 +215,10 @@
     "lokasi": "RTHP Baciro RW 18",
     "latitude": -7.789033,
     "longitude": 110.391725,
-    "status": "ON",
-    "rto_count": 0,
+    "status": "OFF(RTO)",
+    "rto_count": 3,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-13T12:13:40"
   },
   {
     "id": 18,
@@ -231,7 +231,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-17T10:34:11"
   },
   {
     "id": 19,
@@ -244,7 +244,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-17T10:34:11"
   },
   {
     "id": 20,
@@ -257,7 +257,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-17T10:34:11"
   },
   {
     "id": 21,
@@ -270,7 +270,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-17T10:34:12"
   },
   {
     "id": 22,
@@ -283,7 +283,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-17T10:34:13"
   },
   {
     "id": 23,
@@ -296,7 +296,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-17T10:34:13"
   },
   {
     "id": 24,
@@ -309,7 +309,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-17T10:34:13"
   },
   {
     "id": 25,
@@ -322,7 +322,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-17T10:34:14"
   },
   {
     "id": 26,
@@ -335,7 +335,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:31"
+    "last_on": "2025-09-17T10:34:14"
   },
   {
     "id": 27,
@@ -346,7 +346,7 @@
     "latitude": -7.78925,
     "longitude": 110.394806,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 155,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -361,7 +361,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:32"
+    "last_on": "2025-09-17T10:34:17"
   },
   {
     "id": 29,
@@ -374,7 +374,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:32"
+    "last_on": "2025-09-17T10:34:17"
   },
   {
     "id": 30,
@@ -387,7 +387,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:32"
+    "last_on": "2025-09-17T10:34:17"
   },
   {
     "id": 31,
@@ -400,7 +400,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:32"
+    "last_on": "2025-09-17T10:34:17"
   },
   {
     "id": 32,
@@ -413,7 +413,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:32"
+    "last_on": "2025-09-17T10:34:17"
   },
   {
     "id": 33,
@@ -426,7 +426,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:32"
+    "last_on": "2025-09-17T10:34:17"
   },
   {
     "id": 34,
@@ -439,7 +439,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:32"
+    "last_on": "2025-09-17T10:34:18"
   },
   {
     "id": 35,
@@ -452,7 +452,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:32"
+    "last_on": "2025-09-17T10:34:18"
   },
   {
     "id": 36,
@@ -465,7 +465,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:32"
+    "last_on": "2025-09-17T10:34:18"
   },
   {
     "id": 37,
@@ -476,7 +476,7 @@
     "latitude": -7.791719,
     "longitude": 110.383409,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 155,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -491,7 +491,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:33"
+    "last_on": "2025-09-17T10:34:21"
   },
   {
     "id": 39,
@@ -504,7 +504,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:33"
+    "last_on": "2025-09-17T10:34:21"
   },
   {
     "id": 40,
@@ -517,7 +517,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:33"
+    "last_on": "2025-09-17T10:34:22"
   },
   {
     "id": 41,
@@ -527,10 +527,10 @@
     "lokasi": "Tempat pertemuan warga RW 12 Kelurahan Bausasran",
     "latitude": -7.796687,
     "longitude": 110.376908,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:19:52"
+    "last_on": "2025-09-17T10:34:22"
   },
   {
     "id": 42,
@@ -543,7 +543,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:34"
+    "last_on": "2025-09-17T10:34:22"
   },
   {
     "id": 43,
@@ -556,7 +556,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:34"
+    "last_on": "2025-09-17T10:34:22"
   },
   {
     "id": 44,
@@ -569,7 +569,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:34"
+    "last_on": "2025-09-17T10:34:22"
   },
   {
     "id": 45,
@@ -582,7 +582,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:34"
+    "last_on": "2025-09-17T10:34:22"
   },
   {
     "id": 46,
@@ -592,10 +592,10 @@
     "lokasi": "Komplek Masjid Lempuyangan RW 005 Kelurahan Bausasran",
     "latitude": -7.793149,
     "longitude": 110.374935,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:19:53"
+    "last_on": "2025-09-17T10:34:22"
   },
   {
     "id": 47,
@@ -605,10 +605,10 @@
     "lokasi": "Balai Macanan RW 06 Kelurahan Bausasran",
     "latitude": -7.7944431305,
     "longitude": 110.3759384155,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:19:53"
+    "last_on": "2025-09-17T10:34:22"
   },
   {
     "id": 48,
@@ -621,7 +621,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:36"
+    "last_on": "2025-09-17T10:34:22"
   },
   {
     "id": 49,
@@ -634,7 +634,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:36"
+    "last_on": "2025-09-17T10:34:22"
   },
   {
     "id": 50,
@@ -647,7 +647,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:36"
+    "last_on": "2025-09-17T10:34:22"
   },
   {
     "id": 51,
@@ -660,7 +660,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:36"
+    "last_on": "2025-09-17T10:34:22"
   },
   {
     "id": 52,
@@ -673,7 +673,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:36"
+    "last_on": "2025-09-17T10:34:22"
   },
   {
     "id": 53,
@@ -686,7 +686,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:36"
+    "last_on": "2025-09-17T10:34:22"
   },
   {
     "id": 54,
@@ -699,7 +699,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:36"
+    "last_on": "2025-09-17T10:34:23"
   },
   {
     "id": 55,
@@ -712,7 +712,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:36"
+    "last_on": "2025-09-17T10:34:23"
   },
   {
     "id": 56,
@@ -725,7 +725,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:36"
+    "last_on": "2025-09-17T10:34:23"
   },
   {
     "id": 57,
@@ -738,7 +738,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:36"
+    "last_on": "2025-09-17T10:34:23"
   },
   {
     "id": 58,
@@ -749,7 +749,7 @@
     "latitude": -7.8171094,
     "longitude": 110.3735393,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 119,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -764,7 +764,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:37"
+    "last_on": "2025-09-17T10:34:26"
   },
   {
     "id": 60,
@@ -774,10 +774,10 @@
     "lokasi": "Pos Ronda RT 24 RW 07 Kelurahan Brontokusuman",
     "latitude": -7.818771,
     "longitude": 110.371116,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:19:54"
+    "last_on": "2025-09-17T10:34:26"
   },
   {
     "id": 61,
@@ -787,10 +787,10 @@
     "lokasi": "Balai Serbaguna RT 44 RW 10 badran, Kelurahan Bumijo",
     "latitude": -7.787379,
     "longitude": 110.357073,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:19:54"
+    "last_on": "2025-09-17T10:34:26"
   },
   {
     "id": 62,
@@ -803,7 +803,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:39"
+    "last_on": "2025-09-17T10:34:26"
   },
   {
     "id": 63,
@@ -816,7 +816,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:39"
+    "last_on": "2025-09-17T10:34:26"
   },
   {
     "id": 64,
@@ -829,7 +829,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:39"
+    "last_on": "2025-09-17T10:34:26"
   },
   {
     "id": 65,
@@ -842,7 +842,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:39"
+    "last_on": "2025-09-17T10:34:26"
   },
   {
     "id": 66,
@@ -855,7 +855,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:40"
+    "last_on": "2025-09-17T10:34:26"
   },
   {
     "id": 67,
@@ -865,10 +865,10 @@
     "lokasi": "RTHP BUMIJO RW09",
     "latitude": -7.7877324152,
     "longitude": 110.3562620375,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:19:54"
+    "last_on": "2025-09-17T10:34:26"
   },
   {
     "id": 68,
@@ -881,7 +881,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:40"
+    "last_on": "2025-09-17T10:34:27"
   },
   {
     "id": 69,
@@ -894,7 +894,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:40"
+    "last_on": "2025-09-17T10:34:27"
   },
   {
     "id": 70,
@@ -907,7 +907,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:40"
+    "last_on": "2025-09-17T10:34:27"
   },
   {
     "id": 71,
@@ -918,7 +918,7 @@
     "latitude": -7.778792,
     "longitude": 110.36605,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 119,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -930,10 +930,10 @@
     "lokasi": "Balai Anjangsih RW 006, Kelurahan Cokrodiningratan",
     "latitude": -7.776555,
     "longitude": 110.368882,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:19:55"
+    "last_on": "2025-09-17T10:34:30"
   },
   {
     "id": 73,
@@ -943,10 +943,10 @@
     "lokasi": "Kantor RW 07 lama",
     "latitude": -7.77825,
     "longitude": 110.370252,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:19:55"
+    "last_on": "2025-09-17T10:34:31"
   },
   {
     "id": 74,
@@ -959,7 +959,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:43"
+    "last_on": "2025-09-17T10:34:31"
   },
   {
     "id": 75,
@@ -969,10 +969,10 @@
     "lokasi": "Kantor RW / Gedung Pemuda",
     "latitude": -7.780261,
     "longitude": 110.369031,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:19:55"
+    "last_on": "2025-09-17T10:34:31"
   },
   {
     "id": 76,
@@ -985,7 +985,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:44"
+    "last_on": "2025-09-17T10:34:31"
   },
   {
     "id": 77,
@@ -998,7 +998,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:44"
+    "last_on": "2025-09-17T10:34:31"
   },
   {
     "id": 78,
@@ -1008,10 +1008,10 @@
     "lokasi": "Ruang Terbuka Publik RW 01 RT 03",
     "latitude": -7.781811,
     "longitude": 110.389501,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:19:55"
+    "last_on": "2025-09-17T10:34:31"
   },
   {
     "id": 79,
@@ -1022,7 +1022,7 @@
     "latitude": -7.788814,
     "longitude": 110.387197,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 155,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -1037,7 +1037,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:46"
+    "last_on": "2025-09-17T10:34:34"
   },
   {
     "id": 81,
@@ -1050,7 +1050,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:46"
+    "last_on": "2025-09-17T10:34:34"
   },
   {
     "id": 82,
@@ -1063,7 +1063,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:46"
+    "last_on": "2025-09-17T10:34:34"
   },
   {
     "id": 83,
@@ -1076,7 +1076,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:46"
+    "last_on": "2025-09-17T10:34:35"
   },
   {
     "id": 84,
@@ -1086,10 +1086,10 @@
     "lokasi": "Fasum RW 2",
     "latitude": -7.782402,
     "longitude": 110.390238,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:19:56"
+    "last_on": "2025-09-17T10:34:35"
   },
   {
     "id": 85,
@@ -1102,7 +1102,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:47"
+    "last_on": "2025-09-17T10:34:35"
   },
   {
     "id": 86,
@@ -1112,10 +1112,10 @@
     "lokasi": "Rumah Warga RT 14 RW 004, Kelurahan Demangan",
     "latitude": -7.783225,
     "longitude": 110.387669,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:19:56"
+    "last_on": "2025-09-17T10:34:36"
   },
   {
     "id": 87,
@@ -1125,10 +1125,10 @@
     "lokasi": "Rumah ketua RW 5, Kelurahan Demangan",
     "latitude": -7.786381,
     "longitude": 110.389323,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:19:56"
+    "last_on": "2025-09-17T10:34:36"
   },
   {
     "id": 88,
@@ -1138,10 +1138,10 @@
     "lokasi": "Rumah Ketua RT 20 RW 006, Kelurahan Demangan",
     "latitude": -7.787892,
     "longitude": 110.390804,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:19:56"
+    "last_on": "2025-09-17T10:34:36"
   },
   {
     "id": 89,
@@ -1152,7 +1152,7 @@
     "latitude": -7.7885331,
     "longitude": 110.3926266,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 119,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -1167,7 +1167,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:51"
+    "last_on": "2025-09-17T10:34:40"
   },
   {
     "id": 91,
@@ -1180,7 +1180,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:51"
+    "last_on": "2025-09-17T10:34:40"
   },
   {
     "id": 92,
@@ -1193,7 +1193,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:51"
+    "last_on": "2025-09-17T10:34:40"
   },
   {
     "id": 93,
@@ -1203,10 +1203,10 @@
     "lokasi": "Balai RW 7 Suryowojayan",
     "latitude": -7.812351,
     "longitude": 110.355234,
-    "status": "OFF",
-    "rto_count": 17,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T07:05:52.665963"
+    "last_on": "2025-09-17T10:34:40"
   },
   {
     "id": 94,
@@ -1219,7 +1219,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:52"
+    "last_on": "2025-09-17T10:34:40"
   },
   {
     "id": 95,
@@ -1232,7 +1232,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:52"
+    "last_on": "2025-09-17T10:34:40"
   },
   {
     "id": 96,
@@ -1245,7 +1245,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:52"
+    "last_on": "2025-09-17T10:34:40"
   },
   {
     "id": 97,
@@ -1258,7 +1258,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:52"
+    "last_on": "2025-09-17T10:34:40"
   },
   {
     "id": 98,
@@ -1271,7 +1271,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:40"
   },
   {
     "id": 99,
@@ -1284,7 +1284,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:40"
   },
   {
     "id": 100,
@@ -1297,7 +1297,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:40"
   },
   {
     "id": 101,
@@ -1310,7 +1310,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:41"
   },
   {
     "id": 102,
@@ -1323,7 +1323,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:41"
   },
   {
     "id": 103,
@@ -1336,7 +1336,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:41"
   },
   {
     "id": 104,
@@ -1349,7 +1349,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:42"
   },
   {
     "id": 105,
@@ -1362,7 +1362,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:42"
   },
   {
     "id": 106,
@@ -1375,7 +1375,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:42"
   },
   {
     "id": 107,
@@ -1388,7 +1388,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:43"
   },
   {
     "id": 108,
@@ -1401,7 +1401,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:43"
   },
   {
     "id": 109,
@@ -1414,7 +1414,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:43"
   },
   {
     "id": 110,
@@ -1427,7 +1427,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:43"
   },
   {
     "id": 111,
@@ -1440,7 +1440,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:43"
   },
   {
     "id": 112,
@@ -1453,7 +1453,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:43"
   },
   {
     "id": 113,
@@ -1466,7 +1466,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:43"
   },
   {
     "id": 114,
@@ -1479,7 +1479,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:43"
   },
   {
     "id": 115,
@@ -1492,7 +1492,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:43"
   },
   {
     "id": 116,
@@ -1505,7 +1505,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:44"
   },
   {
     "id": 117,
@@ -1518,7 +1518,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:53"
+    "last_on": "2025-09-17T10:34:44"
   },
   {
     "id": 118,
@@ -1528,10 +1528,10 @@
     "lokasi": "Balai Serbaguna RW 6, Kelurahan Kadipaten ",
     "latitude": -7.805447,
     "longitude": 110.35847,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:19:59"
+    "last_on": "2025-09-17T10:34:44"
   },
   {
     "id": 119,
@@ -1541,10 +1541,10 @@
     "lokasi": "Pos Ronda Kadipaten",
     "latitude": -7.8047203,
     "longitude": 110.3582444,
-    "status": "ON",
-    "rto_count": 0,
+    "status": "OFF(RTO)",
+    "rto_count": 3,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:54"
+    "last_on": "2025-09-13T12:13:49"
   },
   {
     "id": 120,
@@ -1557,7 +1557,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:54"
+    "last_on": "2025-09-17T10:34:48"
   },
   {
     "id": 121,
@@ -1570,7 +1570,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:54"
+    "last_on": "2025-09-17T10:34:48"
   },
   {
     "id": 122,
@@ -1580,10 +1580,10 @@
     "lokasi": "Masjid Moelyo Utomo RW 8, Kelurahan Kadipaten ",
     "latitude": -7.8063184,
     "longitude": 110.3598178,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:19:59"
+    "last_on": "2025-09-17T10:34:48"
   },
   {
     "id": 123,
@@ -1596,7 +1596,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:55"
+    "last_on": "2025-09-17T10:34:48"
   },
   {
     "id": 124,
@@ -1606,10 +1606,10 @@
     "lokasi": "Masjid Baiturrahman  RW 001 Kelurahan Karangwaru",
     "latitude": -7.770092,
     "longitude": 110.364066,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:19:59"
+    "last_on": "2025-09-17T10:34:48"
   },
   {
     "id": 125,
@@ -1622,7 +1622,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:56"
+    "last_on": "2025-09-17T10:34:48"
   },
   {
     "id": 126,
@@ -1635,7 +1635,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:56"
+    "last_on": "2025-09-17T10:34:48"
   },
   {
     "id": 127,
@@ -1648,7 +1648,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:56"
+    "last_on": "2025-09-17T10:34:49"
   },
   {
     "id": 128,
@@ -1661,7 +1661,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:56"
+    "last_on": "2025-09-17T10:34:49"
   },
   {
     "id": 129,
@@ -1674,7 +1674,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:56"
+    "last_on": "2025-09-17T10:34:50"
   },
   {
     "id": 130,
@@ -1687,7 +1687,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:56"
+    "last_on": "2025-09-17T10:34:50"
   },
   {
     "id": 131,
@@ -1697,10 +1697,10 @@
     "lokasi": "Balai RK Blunyahrejo",
     "latitude": -7.774306,
     "longitude": 110.365528,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:19:59"
+    "last_on": "2025-09-17T10:34:50"
   },
   {
     "id": 132,
@@ -1710,10 +1710,10 @@
     "lokasi": "Kebun Markisa",
     "latitude": -7.774262,
     "longitude": 110.364608,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:19:59"
+    "last_on": "2025-09-17T10:34:50"
   },
   {
     "id": 133,
@@ -1723,8 +1723,8 @@
     "lokasi": "Balai Petinggen",
     "latitude": -7.7717833,
     "longitude": 110.3680472,
-    "status": "ON",
-    "rto_count": 0,
+    "status": "OFF",
+    "rto_count": 80,
     "Icon": 119,
     "last_on": "2025-09-11T15:20:58"
   },
@@ -1736,10 +1736,10 @@
     "lokasi": "Wilayah Taman RT 7",
     "latitude": -7.809567,
     "longitude": 110.371725,
-    "status": "ON",
-    "rto_count": 0,
+    "status": "OFF(RTO)",
+    "rto_count": 3,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:58"
+    "last_on": "2025-09-13T12:13:51"
   },
   {
     "id": 135,
@@ -1752,7 +1752,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:58"
+    "last_on": "2025-09-17T10:34:57"
   },
   {
     "id": 136,
@@ -1765,7 +1765,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:58"
+    "last_on": "2025-09-17T10:34:58"
   },
   {
     "id": 137,
@@ -1775,10 +1775,10 @@
     "lokasi": "Gudang RW 12 RT 48, Kelurahan Klitren",
     "latitude": -7.780518,
     "longitude": 110.385736,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:19:59"
+    "last_on": "2025-09-17T10:34:58"
   },
   {
     "id": 138,
@@ -1791,7 +1791,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:59"
+    "last_on": "2025-09-17T10:34:59"
   },
   {
     "id": 139,
@@ -1804,7 +1804,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:59"
+    "last_on": "2025-09-17T10:34:59"
   },
   {
     "id": 140,
@@ -1817,7 +1817,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:59"
+    "last_on": "2025-09-17T10:34:59"
   },
   {
     "id": 141,
@@ -1830,7 +1830,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:59"
+    "last_on": "2025-09-17T10:35:00"
   },
   {
     "id": 142,
@@ -1843,7 +1843,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:59"
+    "last_on": "2025-09-17T10:35:00"
   },
   {
     "id": 143,
@@ -1856,7 +1856,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:59"
+    "last_on": "2025-09-17T10:35:01"
   },
   {
     "id": 144,
@@ -1869,7 +1869,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:59"
+    "last_on": "2025-09-17T10:35:02"
   },
   {
     "id": 145,
@@ -1882,7 +1882,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:59"
+    "last_on": "2025-09-17T10:35:02"
   },
   {
     "id": 146,
@@ -1895,7 +1895,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:59"
+    "last_on": "2025-09-17T10:35:02"
   },
   {
     "id": 147,
@@ -1908,7 +1908,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:59"
+    "last_on": "2025-09-17T10:35:02"
   },
   {
     "id": 148,
@@ -1921,7 +1921,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:59"
+    "last_on": "2025-09-17T10:35:03"
   },
   {
     "id": 149,
@@ -1932,7 +1932,7 @@
     "latitude": -7.771723,
     "longitude": 110.359744,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 155,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -1947,7 +1947,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:00"
+    "last_on": "2025-09-17T10:35:06"
   },
   {
     "id": 151,
@@ -1960,7 +1960,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:00"
+    "last_on": "2025-09-17T10:35:06"
   },
   {
     "id": 152,
@@ -1973,7 +1973,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:00"
+    "last_on": "2025-09-17T10:35:08"
   },
   {
     "id": 153,
@@ -1986,7 +1986,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:00"
+    "last_on": "2025-09-17T10:35:08"
   },
   {
     "id": 154,
@@ -1999,7 +1999,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:00"
+    "last_on": "2025-09-17T10:35:09"
   },
   {
     "id": 155,
@@ -2012,7 +2012,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:00"
+    "last_on": "2025-09-17T10:35:10"
   },
   {
     "id": 156,
@@ -2025,7 +2025,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:00"
+    "last_on": "2025-09-17T10:35:10"
   },
   {
     "id": 157,
@@ -2038,7 +2038,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:00"
+    "last_on": "2025-09-17T10:35:10"
   },
   {
     "id": 158,
@@ -2051,7 +2051,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:00"
+    "last_on": "2025-09-17T10:35:11"
   },
   {
     "id": 159,
@@ -2064,7 +2064,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:00"
+    "last_on": "2025-09-17T10:35:11"
   },
   {
     "id": 160,
@@ -2077,7 +2077,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:00"
+    "last_on": "2025-09-17T10:35:11"
   },
   {
     "id": 161,
@@ -2090,7 +2090,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:00"
+    "last_on": "2025-09-17T10:35:12"
   },
   {
     "id": 162,
@@ -2103,7 +2103,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:00"
+    "last_on": "2025-09-17T10:35:12"
   },
   {
     "id": 163,
@@ -2116,7 +2116,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:00"
+    "last_on": "2025-09-17T10:35:13"
   },
   {
     "id": 164,
@@ -2129,7 +2129,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:00"
+    "last_on": "2025-09-17T10:35:14"
   },
   {
     "id": 165,
@@ -2140,7 +2140,7 @@
     "latitude": -7.793685,
     "longitude": 110.389429,
     "status": "OFF",
-    "rto_count": 11,
+    "rto_count": 91,
     "Icon": 155,
     "last_on": "2025-09-11T14:31:16"
   },
@@ -2155,7 +2155,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:01"
+    "last_on": "2025-09-17T10:35:19"
   },
   {
     "id": 167,
@@ -2165,10 +2165,10 @@
     "lokasi": "Balai RW 10 Mujamuju",
     "latitude": -7.803161,
     "longitude": 110.393563,
-    "status": "OFF",
-    "rto_count": 17,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T07:05:52.665963"
+    "last_on": "2025-09-17T10:35:19"
   },
   {
     "id": 168,
@@ -2181,7 +2181,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:02"
+    "last_on": "2025-09-17T10:35:19"
   },
   {
     "id": 169,
@@ -2194,7 +2194,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:02"
+    "last_on": "2025-09-17T10:35:19"
   },
   {
     "id": 170,
@@ -2207,7 +2207,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:02"
+    "last_on": "2025-09-17T10:35:19"
   },
   {
     "id": 171,
@@ -2220,7 +2220,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:02"
+    "last_on": "2025-09-17T10:35:20"
   },
   {
     "id": 172,
@@ -2233,7 +2233,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:02"
+    "last_on": "2025-09-17T10:35:20"
   },
   {
     "id": 173,
@@ -2246,7 +2246,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:02"
+    "last_on": "2025-09-17T10:35:20"
   },
   {
     "id": 174,
@@ -2257,7 +2257,7 @@
     "latitude": -7.7924355,
     "longitude": 110.3953688,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 119,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -2272,7 +2272,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:03"
+    "last_on": "2025-09-17T10:35:23"
   },
   {
     "id": 176,
@@ -2285,7 +2285,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:03"
+    "last_on": "2025-09-17T10:35:23"
   },
   {
     "id": 177,
@@ -2298,7 +2298,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:03"
+    "last_on": "2025-09-17T10:35:24"
   },
   {
     "id": 178,
@@ -2309,7 +2309,7 @@
     "latitude": -7.8002041,
     "longitude": 110.3552031,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 155,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -2324,7 +2324,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:04"
+    "last_on": "2025-09-17T10:35:28"
   },
   {
     "id": 180,
@@ -2337,7 +2337,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:04"
+    "last_on": "2025-09-17T10:35:28"
   },
   {
     "id": 181,
@@ -2350,7 +2350,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:04"
+    "last_on": "2025-09-17T10:35:28"
   },
   {
     "id": 182,
@@ -2363,7 +2363,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:04"
+    "last_on": "2025-09-17T10:35:29"
   },
   {
     "id": 183,
@@ -2376,7 +2376,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:04"
+    "last_on": "2025-09-17T10:35:29"
   },
   {
     "id": 184,
@@ -2389,7 +2389,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:04"
+    "last_on": "2025-09-17T10:35:29"
   },
   {
     "id": 185,
@@ -2402,7 +2402,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:05"
+    "last_on": "2025-09-17T10:35:29"
   },
   {
     "id": 186,
@@ -2415,7 +2415,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:05"
+    "last_on": "2025-09-17T10:35:29"
   },
   {
     "id": 187,
@@ -2428,7 +2428,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:05"
+    "last_on": "2025-09-17T10:35:29"
   },
   {
     "id": 188,
@@ -2439,7 +2439,7 @@
     "latitude": -7.802908,
     "longitude": 110.361193,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 155,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -2454,7 +2454,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:05"
+    "last_on": "2025-09-17T10:35:32"
   },
   {
     "id": 190,
@@ -2467,7 +2467,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:05"
+    "last_on": "2025-09-17T10:35:32"
   },
   {
     "id": 191,
@@ -2480,7 +2480,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:05"
+    "last_on": "2025-09-17T10:35:33"
   },
   {
     "id": 192,
@@ -2493,7 +2493,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:05"
+    "last_on": "2025-09-17T10:35:34"
   },
   {
     "id": 193,
@@ -2506,7 +2506,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:05"
+    "last_on": "2025-09-17T10:35:34"
   },
   {
     "id": 194,
@@ -2519,7 +2519,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:06"
+    "last_on": "2025-09-17T10:35:35"
   },
   {
     "id": 195,
@@ -2529,10 +2529,10 @@
     "lokasi": "Masjid Nur Huda",
     "latitude": -7.801963,
     "longitude": 110.354428,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:20:07"
+    "last_on": "2025-09-17T10:35:35"
   },
   {
     "id": 196,
@@ -2545,7 +2545,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:06"
+    "last_on": "2025-09-17T10:35:36"
   },
   {
     "id": 197,
@@ -2558,7 +2558,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:06"
+    "last_on": "2025-09-17T10:35:36"
   },
   {
     "id": 198,
@@ -2571,7 +2571,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:06"
+    "last_on": "2025-09-17T10:35:36"
   },
   {
     "id": 199,
@@ -2584,7 +2584,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:06"
+    "last_on": "2025-09-17T10:35:36"
   },
   {
     "id": 200,
@@ -2597,7 +2597,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:06"
+    "last_on": "2025-09-17T10:35:37"
   },
   {
     "id": 201,
@@ -2610,7 +2610,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:06"
+    "last_on": "2025-09-17T10:35:37"
   },
   {
     "id": 202,
@@ -2623,7 +2623,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:07"
+    "last_on": "2025-09-17T10:35:38"
   },
   {
     "id": 203,
@@ -2636,7 +2636,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:07"
+    "last_on": "2025-09-17T10:35:38"
   },
   {
     "id": 204,
@@ -2649,7 +2649,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:07"
+    "last_on": "2025-09-17T10:35:38"
   },
   {
     "id": 205,
@@ -2662,7 +2662,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:07"
+    "last_on": "2025-09-17T10:35:38"
   },
   {
     "id": 206,
@@ -2673,7 +2673,7 @@
     "latitude": -7.81776,
     "longitude": 110.391562,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 155,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -2688,7 +2688,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:07"
+    "last_on": "2025-09-17T10:35:41"
   },
   {
     "id": 208,
@@ -2701,7 +2701,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:07"
+    "last_on": "2025-09-17T10:35:42"
   },
   {
     "id": 209,
@@ -2714,7 +2714,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:07"
+    "last_on": "2025-09-17T10:35:42"
   },
   {
     "id": 210,
@@ -2727,7 +2727,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:07"
+    "last_on": "2025-09-17T10:35:43"
   },
   {
     "id": 211,
@@ -2740,7 +2740,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:07"
+    "last_on": "2025-09-17T10:35:43"
   },
   {
     "id": 212,
@@ -2753,7 +2753,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:07"
+    "last_on": "2025-09-17T10:35:43"
   },
   {
     "id": 213,
@@ -2766,7 +2766,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:08"
+    "last_on": "2025-09-17T10:35:44"
   },
   {
     "id": 214,
@@ -2779,7 +2779,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:08"
+    "last_on": "2025-09-17T10:35:44"
   },
   {
     "id": 215,
@@ -2790,7 +2790,7 @@
     "latitude": -7.806347,
     "longitude": 110.363486,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 155,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -2805,7 +2805,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:08"
+    "last_on": "2025-09-17T10:35:48"
   },
   {
     "id": 217,
@@ -2818,7 +2818,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:08"
+    "last_on": "2025-09-17T10:35:49"
   },
   {
     "id": 218,
@@ -2831,7 +2831,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:08"
+    "last_on": "2025-09-17T10:35:49"
   },
   {
     "id": 219,
@@ -2844,7 +2844,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:08"
+    "last_on": "2025-09-17T10:35:49"
   },
   {
     "id": 220,
@@ -2857,7 +2857,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:08"
+    "last_on": "2025-09-17T10:35:49"
   },
   {
     "id": 221,
@@ -2870,7 +2870,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:08"
+    "last_on": "2025-09-17T10:35:49"
   },
   {
     "id": 222,
@@ -2883,7 +2883,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:09"
+    "last_on": "2025-09-17T10:35:49"
   },
   {
     "id": 223,
@@ -2896,7 +2896,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:09"
+    "last_on": "2025-09-17T10:35:49"
   },
   {
     "id": 224,
@@ -2909,7 +2909,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:09"
+    "last_on": "2025-09-17T10:35:49"
   },
   {
     "id": 225,
@@ -2922,7 +2922,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:09"
+    "last_on": "2025-09-17T10:35:49"
   },
   {
     "id": 226,
@@ -2935,7 +2935,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:09"
+    "last_on": "2025-09-17T10:35:49"
   },
   {
     "id": 227,
@@ -2948,7 +2948,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:09"
+    "last_on": "2025-09-17T10:35:49"
   },
   {
     "id": 228,
@@ -2959,7 +2959,7 @@
     "latitude": -7.811146,
     "longitude": 110.359678,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 119,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -2974,7 +2974,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:09"
+    "last_on": "2025-09-17T10:35:53"
   },
   {
     "id": 230,
@@ -2987,7 +2987,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:09"
+    "last_on": "2025-09-17T10:35:53"
   },
   {
     "id": 231,
@@ -3000,7 +3000,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:09"
+    "last_on": "2025-09-17T10:35:54"
   },
   {
     "id": 232,
@@ -3013,7 +3013,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:09"
+    "last_on": "2025-09-17T10:35:54"
   },
   {
     "id": 233,
@@ -3026,7 +3026,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:09"
+    "last_on": "2025-09-17T10:35:54"
   },
   {
     "id": 234,
@@ -3039,7 +3039,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:09"
+    "last_on": "2025-09-17T10:35:54"
   },
   {
     "id": 235,
@@ -3052,7 +3052,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:35:54"
   },
   {
     "id": 236,
@@ -3065,7 +3065,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:35:54"
   },
   {
     "id": 237,
@@ -3078,7 +3078,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:35:54"
   },
   {
     "id": 238,
@@ -3091,7 +3091,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:35:54"
   },
   {
     "id": 239,
@@ -3104,7 +3104,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:35:54"
   },
   {
     "id": 240,
@@ -3117,7 +3117,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:35:55"
   },
   {
     "id": 241,
@@ -3130,7 +3130,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:35:55"
   },
   {
     "id": 242,
@@ -3143,7 +3143,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:35:55"
   },
   {
     "id": 243,
@@ -3156,7 +3156,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:35:55"
   },
   {
     "id": 244,
@@ -3169,7 +3169,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:35:56"
   },
   {
     "id": 245,
@@ -3182,7 +3182,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:35:56"
   },
   {
     "id": 246,
@@ -3192,10 +3192,10 @@
     "lokasi": " Warung Rakyat RW 10, Kelurahan Prenggan",
     "latitude": -7.826318,
     "longitude": 110.398713,
-    "status": "ON",
-    "rto_count": 0,
+    "status": "OFF(Waiting Connection)",
+    "rto_count": 1,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:32:48"
   },
   {
     "id": 247,
@@ -3208,7 +3208,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:35:59"
   },
   {
     "id": 248,
@@ -3221,7 +3221,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:35:59"
   },
   {
     "id": 249,
@@ -3234,7 +3234,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:36:00"
   },
   {
     "id": 250,
@@ -3247,7 +3247,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:36:01"
   },
   {
     "id": 251,
@@ -3260,7 +3260,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:36:01"
   },
   {
     "id": 252,
@@ -3273,7 +3273,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:10"
+    "last_on": "2025-09-17T10:36:02"
   },
   {
     "id": 253,
@@ -3283,10 +3283,10 @@
     "lokasi": "Masjid Al Mustagfirin",
     "latitude": -7.8201624595,
     "longitude": 110.3957477378,
-    "status": "OFF",
-    "rto_count": 17,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T07:05:52.665963"
+    "last_on": "2025-09-17T10:36:02"
   },
   {
     "id": 254,
@@ -3299,7 +3299,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:02"
   },
   {
     "id": 255,
@@ -3312,7 +3312,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:02"
   },
   {
     "id": 256,
@@ -3325,7 +3325,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:02"
   },
   {
     "id": 257,
@@ -3338,7 +3338,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:02"
   },
   {
     "id": 258,
@@ -3351,7 +3351,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:02"
   },
   {
     "id": 259,
@@ -3364,7 +3364,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:03"
   },
   {
     "id": 260,
@@ -3377,7 +3377,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:03"
   },
   {
     "id": 261,
@@ -3390,7 +3390,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:03"
   },
   {
     "id": 262,
@@ -3403,7 +3403,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:04"
   },
   {
     "id": 263,
@@ -3416,7 +3416,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:04"
   },
   {
     "id": 264,
@@ -3429,7 +3429,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:04"
   },
   {
     "id": 265,
@@ -3442,7 +3442,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:04"
   },
   {
     "id": 266,
@@ -3455,7 +3455,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:04"
   },
   {
     "id": 267,
@@ -3468,7 +3468,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:04"
   },
   {
     "id": 268,
@@ -3481,7 +3481,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:04"
   },
   {
     "id": 269,
@@ -3494,7 +3494,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:04"
   },
   {
     "id": 270,
@@ -3507,7 +3507,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:04"
   },
   {
     "id": 271,
@@ -3520,7 +3520,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:04"
   },
   {
     "id": 272,
@@ -3533,7 +3533,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:11"
+    "last_on": "2025-09-17T10:36:04"
   },
   {
     "id": 273,
@@ -3546,7 +3546,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:12"
+    "last_on": "2025-09-17T10:36:05"
   },
   {
     "id": 274,
@@ -3557,7 +3557,7 @@
     "latitude": -7.7921,
     "longitude": 110.35639,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 119,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -3572,7 +3572,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:12"
+    "last_on": "2025-09-17T10:36:08"
   },
   {
     "id": 276,
@@ -3585,7 +3585,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:12"
+    "last_on": "2025-09-17T10:36:08"
   },
   {
     "id": 277,
@@ -3598,7 +3598,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:12"
+    "last_on": "2025-09-17T10:36:08"
   },
   {
     "id": 278,
@@ -3611,7 +3611,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:12"
+    "last_on": "2025-09-17T10:36:09"
   },
   {
     "id": 279,
@@ -3624,7 +3624,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:12"
+    "last_on": "2025-09-17T10:36:09"
   },
   {
     "id": 280,
@@ -3637,7 +3637,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:09"
   },
   {
     "id": 281,
@@ -3650,7 +3650,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:09"
   },
   {
     "id": 282,
@@ -3663,7 +3663,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:09"
   },
   {
     "id": 283,
@@ -3676,7 +3676,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:09"
   },
   {
     "id": 284,
@@ -3689,7 +3689,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:10"
   },
   {
     "id": 285,
@@ -3702,7 +3702,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:10"
   },
   {
     "id": 286,
@@ -3715,7 +3715,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:10"
   },
   {
     "id": 287,
@@ -3728,7 +3728,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:10"
   },
   {
     "id": 288,
@@ -3741,7 +3741,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:11"
   },
   {
     "id": 289,
@@ -3754,7 +3754,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:11"
   },
   {
     "id": 290,
@@ -3767,7 +3767,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:11"
   },
   {
     "id": 291,
@@ -3780,7 +3780,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:11"
   },
   {
     "id": 292,
@@ -3793,7 +3793,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:11"
   },
   {
     "id": 293,
@@ -3806,7 +3806,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:11"
   },
   {
     "id": 294,
@@ -3819,7 +3819,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:11"
   },
   {
     "id": 295,
@@ -3832,7 +3832,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:13"
+    "last_on": "2025-09-17T10:36:11"
   },
   {
     "id": 296,
@@ -3843,7 +3843,7 @@
     "latitude": -7.826715,
     "longitude": 110.403685,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 119,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -3858,7 +3858,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:14"
+    "last_on": "2025-09-17T10:36:14"
   },
   {
     "id": 298,
@@ -3871,7 +3871,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:14"
+    "last_on": "2025-09-17T10:36:14"
   },
   {
     "id": 299,
@@ -3884,7 +3884,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:14"
+    "last_on": "2025-09-17T10:36:15"
   },
   {
     "id": 300,
@@ -3897,7 +3897,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:14"
+    "last_on": "2025-09-17T10:36:15"
   },
   {
     "id": 301,
@@ -3910,7 +3910,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:14"
+    "last_on": "2025-09-17T10:36:15"
   },
   {
     "id": 302,
@@ -3923,7 +3923,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:14"
+    "last_on": "2025-09-17T10:36:15"
   },
   {
     "id": 303,
@@ -3933,10 +3933,10 @@
     "lokasi": "Balai Pos Ronda RW 006, Kelurahan Purwokinanti",
     "latitude": -7.797333,
     "longitude": 110.372528,
-    "status": "ON",
-    "rto_count": 0,
+    "status": "OFF(RTO)",
+    "rto_count": 3,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:14"
+    "last_on": "2025-09-13T12:14:07"
   },
   {
     "id": 304,
@@ -3949,7 +3949,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:14"
+    "last_on": "2025-09-17T10:36:18"
   },
   {
     "id": 305,
@@ -3962,7 +3962,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:14"
+    "last_on": "2025-09-17T10:36:18"
   },
   {
     "id": 306,
@@ -3975,7 +3975,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:14"
+    "last_on": "2025-09-17T10:36:18"
   },
   {
     "id": 307,
@@ -3986,7 +3986,7 @@
     "latitude": -7.797974,
     "longitude": 110.376483,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 155,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -4001,7 +4001,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:15"
+    "last_on": "2025-09-17T10:36:22"
   },
   {
     "id": 309,
@@ -4012,7 +4012,7 @@
     "latitude": -7.8057241,
     "longitude": 110.4001156,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 119,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -4027,7 +4027,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:16"
+    "last_on": "2025-09-17T10:36:25"
   },
   {
     "id": 311,
@@ -4038,7 +4038,7 @@
     "latitude": -7.808778,
     "longitude": 110.398351,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 119,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -4053,7 +4053,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:17"
+    "last_on": "2025-09-17T10:36:28"
   },
   {
     "id": 313,
@@ -4064,7 +4064,7 @@
     "latitude": -7.810769,
     "longitude": 110.396775,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 119,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -4079,7 +4079,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:18"
+    "last_on": "2025-09-17T10:36:31"
   },
   {
     "id": 315,
@@ -4092,7 +4092,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:18"
+    "last_on": "2025-09-17T10:36:32"
   },
   {
     "id": 316,
@@ -4105,7 +4105,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:18"
+    "last_on": "2025-09-17T10:36:33"
   },
   {
     "id": 317,
@@ -4116,7 +4116,7 @@
     "latitude": -7.815272,
     "longitude": 110.398842,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 155,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -4131,7 +4131,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:36"
   },
   {
     "id": 319,
@@ -4144,7 +4144,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:36"
   },
   {
     "id": 320,
@@ -4157,7 +4157,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:36"
   },
   {
     "id": 321,
@@ -4170,7 +4170,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:36"
   },
   {
     "id": 322,
@@ -4183,7 +4183,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:36"
   },
   {
     "id": 323,
@@ -4196,7 +4196,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:36"
   },
   {
     "id": 324,
@@ -4209,7 +4209,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:37"
   },
   {
     "id": 325,
@@ -4222,7 +4222,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:37"
   },
   {
     "id": 326,
@@ -4235,7 +4235,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:37"
   },
   {
     "id": 327,
@@ -4248,7 +4248,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:37"
   },
   {
     "id": 328,
@@ -4261,7 +4261,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:37"
   },
   {
     "id": 329,
@@ -4274,7 +4274,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:37"
   },
   {
     "id": 330,
@@ -4287,7 +4287,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:38"
   },
   {
     "id": 331,
@@ -4300,7 +4300,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:38"
   },
   {
     "id": 332,
@@ -4313,7 +4313,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:38"
   },
   {
     "id": 333,
@@ -4326,7 +4326,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:38"
   },
   {
     "id": 334,
@@ -4339,7 +4339,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:38"
   },
   {
     "id": 335,
@@ -4352,7 +4352,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:38"
   },
   {
     "id": 336,
@@ -4365,7 +4365,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:19"
+    "last_on": "2025-09-17T10:36:38"
   },
   {
     "id": 337,
@@ -4378,7 +4378,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:20"
+    "last_on": "2025-09-17T10:36:38"
   },
   {
     "id": 338,
@@ -4391,7 +4391,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:20"
+    "last_on": "2025-09-17T10:36:39"
   },
   {
     "id": 339,
@@ -4404,7 +4404,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:20"
+    "last_on": "2025-09-17T10:36:39"
   },
   {
     "id": 340,
@@ -4417,7 +4417,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:20"
+    "last_on": "2025-09-17T10:36:39"
   },
   {
     "id": 341,
@@ -4430,7 +4430,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:20"
+    "last_on": "2025-09-17T10:36:39"
   },
   {
     "id": 342,
@@ -4443,7 +4443,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:20"
+    "last_on": "2025-09-17T10:36:40"
   },
   {
     "id": 343,
@@ -4453,8 +4453,8 @@
     "lokasi": "Balai kumpul warga RT 11/03, Kelurahan Sorosutan",
     "latitude": -7.816835,
     "longitude": 110.379675,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "OFF",
+    "rto_count": 81,
     "Icon": 155,
     "last_on": "2025-09-11T15:20:20"
   },
@@ -4469,7 +4469,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:20"
+    "last_on": "2025-09-17T10:36:43"
   },
   {
     "id": 345,
@@ -4479,10 +4479,10 @@
     "lokasi": "Balai Warga RW 07 Kampung Dagaran, Kelurahan Sorosutan",
     "latitude": -7.822154,
     "longitude": 110.381013,
-    "status": "OFF(RTO)",
-    "rto_count": 5,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:17:11"
+    "last_on": "2025-09-17T10:36:43"
   },
   {
     "id": 346,
@@ -4495,7 +4495,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:21"
+    "last_on": "2025-09-17T10:36:43"
   },
   {
     "id": 347,
@@ -4508,7 +4508,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:21"
+    "last_on": "2025-09-17T10:36:44"
   },
   {
     "id": 348,
@@ -4521,7 +4521,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:21"
+    "last_on": "2025-09-17T10:36:44"
   },
   {
     "id": 349,
@@ -4534,7 +4534,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:21"
+    "last_on": "2025-09-17T10:36:45"
   },
   {
     "id": 350,
@@ -4547,7 +4547,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:21"
+    "last_on": "2025-09-17T10:36:45"
   },
   {
     "id": 351,
@@ -4560,7 +4560,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:21"
+    "last_on": "2025-09-17T10:36:45"
   },
   {
     "id": 352,
@@ -4573,7 +4573,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:22"
+    "last_on": "2025-09-17T10:36:46"
   },
   {
     "id": 353,
@@ -4584,7 +4584,7 @@
     "latitude": -7.792469,
     "longitude": 110.362047,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 155,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -4599,7 +4599,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:22"
+    "last_on": "2025-09-17T10:36:49"
   },
   {
     "id": 355,
@@ -4612,7 +4612,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:22"
+    "last_on": "2025-09-17T10:36:49"
   },
   {
     "id": 356,
@@ -4625,7 +4625,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:22"
+    "last_on": "2025-09-17T10:36:49"
   },
   {
     "id": 357,
@@ -4638,7 +4638,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:22"
+    "last_on": "2025-09-17T10:36:49"
   },
   {
     "id": 358,
@@ -4651,7 +4651,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:22"
+    "last_on": "2025-09-17T10:36:50"
   },
   {
     "id": 359,
@@ -4664,7 +4664,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:22"
+    "last_on": "2025-09-17T10:36:50"
   },
   {
     "id": 360,
@@ -4677,7 +4677,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:23"
+    "last_on": "2025-09-17T10:36:50"
   },
   {
     "id": 361,
@@ -4690,7 +4690,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:23"
+    "last_on": "2025-09-17T10:36:50"
   },
   {
     "id": 362,
@@ -4703,7 +4703,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:23"
+    "last_on": "2025-09-17T10:36:50"
   },
   {
     "id": 363,
@@ -4716,7 +4716,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:23"
+    "last_on": "2025-09-17T10:36:50"
   },
   {
     "id": 364,
@@ -4729,7 +4729,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:23"
+    "last_on": "2025-09-17T10:36:51"
   },
   {
     "id": 365,
@@ -4742,7 +4742,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:23"
+    "last_on": "2025-09-17T10:36:51"
   },
   {
     "id": 366,
@@ -4755,7 +4755,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:23"
+    "last_on": "2025-09-17T10:36:51"
   },
   {
     "id": 367,
@@ -4768,7 +4768,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:23"
+    "last_on": "2025-09-17T10:36:51"
   },
   {
     "id": 368,
@@ -4778,10 +4778,10 @@
     "lokasi": "Tempat Kumpul Warga RW 14, Kelurahan Suryodiningratan",
     "latitude": -7.82136,
     "longitude": 110.360247,
-    "status": "OFF",
-    "rto_count": 7,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:15:48"
+    "last_on": "2025-09-17T10:36:51"
   },
   {
     "id": 369,
@@ -4794,7 +4794,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:51"
   },
   {
     "id": 370,
@@ -4807,7 +4807,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:51"
   },
   {
     "id": 371,
@@ -4820,7 +4820,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:51"
   },
   {
     "id": 372,
@@ -4833,7 +4833,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:52"
   },
   {
     "id": 373,
@@ -4846,7 +4846,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:52"
   },
   {
     "id": 374,
@@ -4859,7 +4859,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:52"
   },
   {
     "id": 375,
@@ -4872,7 +4872,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:52"
   },
   {
     "id": 376,
@@ -4885,7 +4885,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:52"
   },
   {
     "id": 377,
@@ -4895,10 +4895,10 @@
     "lokasi": "Balai RW 15 Juminahan",
     "latitude": -7.794946,
     "longitude": 110.371925,
-    "status": "ON",
-    "rto_count": 0,
+    "status": "OFF(RTO)",
+    "rto_count": 2,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:27:29"
   },
   {
     "id": 378,
@@ -4911,7 +4911,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:55"
   },
   {
     "id": 379,
@@ -4924,7 +4924,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:56"
   },
   {
     "id": 380,
@@ -4937,7 +4937,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:56"
   },
   {
     "id": 381,
@@ -4950,7 +4950,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:56"
   },
   {
     "id": 382,
@@ -4963,7 +4963,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:56"
   },
   {
     "id": 383,
@@ -4976,7 +4976,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:56"
   },
   {
     "id": 384,
@@ -4989,7 +4989,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:56"
   },
   {
     "id": 385,
@@ -5002,7 +5002,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:56"
   },
   {
     "id": 386,
@@ -5015,7 +5015,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:56"
   },
   {
     "id": 387,
@@ -5028,7 +5028,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:56"
   },
   {
     "id": 388,
@@ -5041,7 +5041,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:24"
+    "last_on": "2025-09-17T10:36:57"
   },
   {
     "id": 389,
@@ -5054,7 +5054,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:25"
+    "last_on": "2025-09-17T10:36:57"
   },
   {
     "id": 390,
@@ -5067,7 +5067,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:25"
+    "last_on": "2025-09-17T10:36:57"
   },
   {
     "id": 391,
@@ -5080,7 +5080,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:25"
+    "last_on": "2025-09-17T10:36:57"
   },
   {
     "id": 392,
@@ -5093,7 +5093,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:25"
+    "last_on": "2025-09-17T10:36:58"
   },
   {
     "id": 393,
@@ -5106,7 +5106,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:25"
+    "last_on": "2025-09-17T10:36:58"
   },
   {
     "id": 394,
@@ -5119,7 +5119,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:25"
+    "last_on": "2025-09-17T10:36:58"
   },
   {
     "id": 395,
@@ -5132,7 +5132,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:25"
+    "last_on": "2025-09-17T10:36:58"
   },
   {
     "id": 396,
@@ -5143,7 +5143,7 @@
     "latitude": -7.808969,
     "longitude": 110.39257,
     "status": "OFF",
-    "rto_count": 17,
+    "rto_count": 97,
     "Icon": 155,
     "last_on": "2025-09-11T07:05:52.665963"
   },
@@ -5158,7 +5158,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:25"
+    "last_on": "2025-09-17T10:37:01"
   },
   {
     "id": 398,
@@ -5171,7 +5171,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:25"
+    "last_on": "2025-09-17T10:37:02"
   },
   {
     "id": 399,
@@ -5181,10 +5181,10 @@
     "lokasi": "Balai RW 5, Kelurahan Warungboto ",
     "latitude": -7.807325,
     "longitude": 110.3886333,
-    "status": "OFF(Waiting Connection)",
-    "rto_count": 1,
+    "status": "ON",
+    "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:20:26"
+    "last_on": "2025-09-17T10:37:02"
   },
   {
     "id": 400,
@@ -5195,7 +5195,7 @@
     "latitude": -7.802998,
     "longitude": 110.351845,
     "status": "OFF",
-    "rto_count": 14,
+    "rto_count": 94,
     "Icon": 155,
     "last_on": "2025-09-11T14:23:43"
   },
@@ -5210,7 +5210,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:27"
+    "last_on": "2025-09-17T10:37:06"
   },
   {
     "id": 402,
@@ -5223,7 +5223,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:27"
+    "last_on": "2025-09-17T10:37:06"
   },
   {
     "id": 403,
@@ -5236,7 +5236,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:27"
+    "last_on": "2025-09-17T10:37:06"
   },
   {
     "id": 404,
@@ -5249,7 +5249,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:27"
+    "last_on": "2025-09-17T10:37:06"
   },
   {
     "id": 405,
@@ -5262,7 +5262,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:27"
+    "last_on": "2025-09-17T10:37:07"
   },
   {
     "id": 406,
@@ -5275,7 +5275,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:27"
+    "last_on": "2025-09-17T10:37:07"
   },
   {
     "id": 407,
@@ -5288,7 +5288,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:28"
+    "last_on": "2025-09-17T10:37:07"
   },
   {
     "id": 408,
@@ -5301,7 +5301,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:28"
+    "last_on": "2025-09-17T10:37:07"
   },
   {
     "id": 409,
@@ -5314,7 +5314,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:28"
+    "last_on": "2025-09-17T10:37:07"
   },
   {
     "id": 410,
@@ -5327,7 +5327,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:28"
+    "last_on": "2025-09-17T10:37:07"
   },
   {
     "id": 411,
@@ -5340,7 +5340,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:28"
+    "last_on": "2025-09-17T10:37:07"
   },
   {
     "id": 412,
@@ -5353,7 +5353,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:28"
+    "last_on": "2025-09-17T10:37:08"
   },
   {
     "id": 413,
@@ -5366,7 +5366,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:28"
+    "last_on": "2025-09-17T10:37:08"
   },
   {
     "id": 414,
@@ -5379,7 +5379,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:28"
+    "last_on": "2025-09-17T10:37:08"
   },
   {
     "id": 415,
@@ -5392,7 +5392,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:28"
+    "last_on": "2025-09-17T10:37:08"
   },
   {
     "id": 416,
@@ -5405,7 +5405,7 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 155,
-    "last_on": "2025-09-11T15:21:28"
+    "last_on": "2025-09-17T10:37:08"
   },
   {
     "id": 417,
@@ -5418,6 +5418,6 @@
     "status": "ON",
     "rto_count": 0,
     "Icon": 119,
-    "last_on": "2025-09-11T15:21:28"
+    "last_on": "2025-09-17T10:37:10"
   }
 ]

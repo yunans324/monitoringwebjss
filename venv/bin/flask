@@ -1,4 +1,4 @@
-#!/home/siswa/ProjectWebJss/venv/bin/python3
+#!/home/rull/project/monitoringwebjss/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

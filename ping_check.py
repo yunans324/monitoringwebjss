@@ -16,21 +16,27 @@ MIKROTIK_INTERVAL = 300
 
 def ping(ip):
     """
-    Ping function yang kompatibel dengan Windows dan Linux.
+    Ping 3x menggunakan subprocess, jika salah satu reply maka dianggap ON.
+    Kompatibel Linux/Windows tanpa sudo.
     """
-    try:
-        if platform.system().lower() == "windows":
-            command = f"ping -n 1 -w 1000 {ip}"
-        else:
-            command = f"ping -c 1 -W 1 {ip}"
-        result = subprocess.run(command, shell=True, capture_output=True, text=True, check=False)
-        if platform.system().lower() == "windows":
-            return "Reply from" in result.stdout or "bytes=" in result.stdout
-        else:
-            return result.returncode == 0
-    except Exception as e:
-        print(f"Error saat ping {ip}: {e}")
-        return False
+    for i in range(3):
+        try:
+            if platform.system().lower() == "windows":
+                command = f"ping -n 1 -w 1000 {ip}"
+            else:
+                command = f"ping -c 1 -W 1 {ip}"
+            result = subprocess.run(command, shell=True, capture_output=True, text=True, check=False)
+            print(f"[subprocess] {ip} attempt {i+1}: returncode={result.returncode}")
+            print(f"[subprocess] {ip} attempt {i+1}: stdout=\n{result.stdout}")
+            if platform.system().lower() == "windows":
+                if "Reply from" in result.stdout or "bytes=" in result.stdout:
+                    return True
+            else:
+                if result.returncode == 0:
+                    return True
+        except Exception as e:
+            print(f"[subprocess ERROR] {ip} attempt {i+1}: {e}")
+    return False
 
 # FUNGSI LAMA (TETAP ADA)
 def get_mikrotik_hotspot_active_count():
@@ -96,19 +102,30 @@ def update_ont_statuses():
             print(f"Memulai ping ke {len(onts)} ONT...")
             for ont in onts:
                 ip = ont.get('ip', '')
-                if not ip: continue
+                name = ont.get('name', ip)
+                if not ip:
+                    print(f"[SKIP] ONT {name} tidak punya IP.")
+                    continue
                 if ping(ip):
                     ont['status'] = "ON"
                     ont['rto_count'] = 0
                     ont['last_on'] = time.strftime('%Y-%m-%dT%H:%M:%S')
+                    print(f"[PING] {name} ({ip}): ON")
                 else:
                     ont['rto_count'] = ont.get('rto_count', 0) + 1
-                    if ont['rto_count'] == 1: ont['status'] = "OFF(Waiting Connection)"
-                    elif 2 <= ont['rto_count'] <= 5: ont['status'] = "OFF(RTO)"
-                    else: ont['status'] = "OFF"
+                    if ont['rto_count'] == 1:
+                        ont['status'] = "OFF(Waiting Connection)"
+                    elif 2 <= ont['rto_count'] <= 5:
+                        ont['status'] = "OFF(RTO)"
+                    else:
+                        ont['status'] = "OFF"
+                    print(f"[PING] {name} ({ip}): {ont['status']}")
+            import os
             f.seek(0)
             json.dump(onts, f, indent=2, ensure_ascii=False)
             f.truncate()
+            f.flush()
+            os.fsync(f.fileno())
         print("Status ONT berhasil diperbarui di onts.json.")
     except Exception as e:
         print(f"Error saat memperbarui status ONT: {e}")
