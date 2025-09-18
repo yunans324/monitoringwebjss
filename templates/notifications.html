@@ -430,13 +430,83 @@
         setInterval(updateAllTimestamps, 60000);
 
         // Auto refresh every 30 seconds
+        // Fungsi untuk render ulang notifikasi ke dalam container
+        function renderNotifications(notifications) {
+            const container = document.getElementById('notifications-container');
+            if (!notifications || notifications.length === 0) {
+                container.innerHTML = `
+                <div class="empty-state">
+                    <i class="fas fa-bell-slash"></i>
+                    <h4>Tidak ada notifikasi</h4>
+                    <p>Belum ada notifikasi yang tersimpan dalam sistem.</p>
+                </div>
+                `;
+                return;
+            }
+            let html = '';
+            notifications.forEach(notification => {
+                html += `
+                <div class="card mb-3 notification-item ${!notification.read ? 'unread' : ''} notification-type-${notification.type}"
+                     data-type="${notification.type}"
+                     data-read="${notification.read ? 'true' : 'false'}"
+                     data-id="${notification.id}">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="flex-grow-1">
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="badge bg-${notification.type} me-2">
+                                        ${notification.type === 'info' ? '<i class=\'fas fa-info-circle\'></i>' : ''}
+                                        ${notification.type === 'success' ? '<i class=\'fas fa-check-circle\'></i>' : ''}
+                                        ${notification.type === 'warning' ? '<i class=\'fas fa-exclamation-triangle\'></i>' : ''}
+                                        ${notification.type === 'error' ? '<i class=\'fas fa-times-circle\'></i>' : ''}
+                                        ${notification.type.toUpperCase()}
+                                    </span>
+                                    ${!notification.read ? '<span class="badge bg-danger">BARU</span>' : ''}
+                                </div>
+                                <p class="notification-message mb-2">${notification.message}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="real-time-timestamp">
+                                        <i class="fas fa-clock me-1"></i>
+                                        <span class="time-ago" data-timestamp="${notification.timestamp}">Loading...</span>
+                                    </small>
+                                    ${notification.ont_name ? `<small class="text-muted"><i class=\'fas fa-network-wired me-1\'></i> ${notification.ont_name}</small>` : ''}
+                                </div>
+                            </div>
+                            ${!notification.read ? `<button class="btn btn-sm btn-outline-primary mark-read-btn" data-notification-id="${notification.id}"><i class=\'fas fa-check\'></i> Tandai Dibaca</button>` : ''}
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+            container.innerHTML = html;
+            // Re-attach event listeners for mark as read
+            document.querySelectorAll('.mark-read-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const notificationId = this.getAttribute('data-notification-id');
+                    const notificationItem = this.closest('.notification-item');
+                    fetch(`/api/notifications/mark-read/${notificationId}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            notificationItem.classList.remove('unread');
+                            notificationItem.setAttribute('data-read', 'true');
+                            this.remove();
+                        }
+                    });
+                });
+            });
+            updateAllTimestamps();
+        }
+
+        // Auto refresh daftar notifikasi setiap 30 detik
         setInterval(() => {
             fetch('/api/notifications')
                 .then(response => response.json())
                 .then(data => {
-                    // Update notification count if needed
-                    const unreadCount = data.filter(n => !n.read).length;
-                    console.log('Unread notifications:', unreadCount);
+                    renderNotifications(data);
                 })
                 .catch(error => console.error('Error refreshing notifications:', error));
         }, 30000);
