@@ -405,13 +405,23 @@
         let userHistoryLineChart;
 
         function loadStats() {
-            // Fungsi ini tetap sama
-            fetch('/api/onts').then(res => res.json()).then(data => {
-                document.getElementById('total-onts').textContent = data.length;
-                const onlineCount = data.filter(ont => ont.status === 'ON').length;
-                document.getElementById('online-onts').textContent = onlineCount;
-                document.getElementById('offline-onts').textContent = data.length - onlineCount;
-            });
+            fetch('/api/onts')
+                .then(res => res.json())
+                .then(allData => {
+                    // === PERUBAHAN DI SINI: Filter data untuk hanya menyertakan APBD ===
+                    const apbdData = allData.filter(ont => ont.Icon === 119);
+
+                    // Gunakan data yang sudah difilter untuk statistik
+                    const totalOnts = apbdData.length;
+                    const onlineOnts = apbdData.filter(ont => ont.status === 'ON').length;
+                    const offlineOnts = totalOnts - onlineOnts;
+                    
+                    document.getElementById('total-onts').textContent = totalOnts;
+                    document.getElementById('online-onts').textContent = onlineOnts;
+                    document.getElementById('offline-onts').textContent = offlineOnts;
+                });
+            
+            // Bagian untuk mengambil data user hotspot tetap sama
             fetch('/api/history').then(res => res.json()).then(data => {
                 if (data.length > 0) {
                     document.getElementById('active-users').textContent = data[data.length - 1].users;

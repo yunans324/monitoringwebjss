@@ -466,23 +466,29 @@
       }
       function loadAllData() {
         fetch("/api/onts")
-          .then((res) => res.json())
-          .then((data) => {
-            allOntData = data;
-            updateStats(data);
-            renderMarkers(data);
-            if (isFirstLoad && data.length > 0) {
-              const coordinates = data.map((ont) => [
-                ont.latitude,
-                ont.longitude,
-              ]);
-              const bounds = L.latLngBounds(coordinates);
-              map.fitBounds(bounds, { padding: [50, 50] });
-              isFirstLoad = false;
-            }
-          });
+            .then((res) => res.json())
+            .then((data) => {
+                // === PERUBAHAN DI SINI: Filter data untuk hanya menyertakan APBD ===
+                const apbdData = data.filter(ont => ont.Icon === 119);
+                
+                allOntData = apbdData; // Simpan data yang sudah difilter
+                updateStats(apbdData);
+                renderMarkers(apbdData.filter(ont => typeof ont.latitude === 'number' && typeof ont.longitude === 'number'));
+                
+                if (isFirstLoad && apbdData.length > 0) {
+                    const coordinates = apbdData
+                        .filter(ont => typeof ont.latitude === 'number' && typeof ont.longitude === 'number')
+                        .map((ont) => [ont.latitude, ont.longitude]);
+                    
+                    if (coordinates.length > 0) {
+                        const bounds = L.latLngBounds(coordinates);
+                        map.fitBounds(bounds, { padding: [50, 50] });
+                    }
+                    isFirstLoad = false;
+                }
+            });
         getMikrotikUserCount();
-      }
+    }
       document
         .getElementById("searchONT")
         .addEventListener("input", function (e) {
@@ -522,23 +528,7 @@
     }, 350);
   });
 });
-// === Custom Control Legenda di Peta ===
-L.Control.LegendCustom = L.Control.extend({
-    onAdd: function(map) {
-        let div = L.DomUtil.create('div', 'leaflet-control-custom');
-        div.innerHTML = `
-            <div style="font-size:12px; line-height:1.4;">
-                <b>Legenda</b><br>
-                <span style="color:#27ae60;">●</span> CSR Online<br>
-                <span style="color:#ff6b35;">●</span> CSR Offline<br>
-                <span style="color:#3498db;">●</span> APBD Online<br>
-                <span style="color:#e74c3c;">●</span> APBD Offline
-            </div>
-        `;
-        return div;
-    },
-    onRemove: function(map) {}
-});
+
 // === Custom Control: Fit Area ===
 L.Control.FitArea = L.Control.extend({
     onAdd: function(map) {
