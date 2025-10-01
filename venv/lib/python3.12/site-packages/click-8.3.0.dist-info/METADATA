@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: click
-Version: 8.2.1
+Version: 8.3.0
 Summary: Composable command line interface toolkit
 Maintainer-email: Pallets <contact@palletsprojects.com>
 Requires-Python: >=3.10
@@ -19,7 +19,9 @@ Project-URL: Documentation, https://click.palletsprojects.com/
 Project-URL: Donate, https://palletsprojects.com/donate
 Project-URL: Source, https://github.com/pallets/click/
 
-# $ click_
+<div align="center"><img src="https://raw.githubusercontent.com/pallets/click/refs/heads/stable/docs/_static/click-name.svg" alt="" height="150"></div>
+
+# Click
 
 Click is a Python package for creating beautiful command line interfaces
 in a composable way with as little code as necessary. It's the "Command
