@@ -97,36 +97,82 @@ def get_mikrotik_active_users_detail():
 def update_ont_statuses():
     """Melakukan ping ke semua ONT dan mengupdate statusnya di onts.json."""
     try:
-        with open("onts.json", "r+", encoding='utf-8') as f:
-            onts = json.load(f)
-            print(f"Memulai ping ke {len(onts)} ONT...")
-            for ont in onts:
-                ip = ont.get('ip', '')
-                name = ont.get('name', ip)
-                if not ip:
-                    print(f"[SKIP] ONT {name} tidak punya IP.")
-                    continue
-                if ping(ip):
-                    ont['status'] = "ON"
-                    ont['rto_count'] = 0
-                    ont['last_on'] = time.strftime('%Y-%m-%dT%H:%M:%S')
-                    print(f"[PING] {name} ({ip}): ON")
+        # 1) Load a snapshot to perform pings against
+        with open("onts.json", "r", encoding='utf-8') as f:
+            snapshot = json.load(f)
+
+        print(f"Memulai ping ke {len(snapshot)} ONT...")
+
+        # 2) Compute status updates based on the snapshot (don't mutate file content yet)
+        updates = {}
+        for ont in snapshot:
+            ont_id = ont.get('id')
+            ip = ont.get('ip', '')
+            name = ont.get('name', ip)
+            if not ip:
+                print(f"[SKIP] ONT {name} tidak punya IP.")
+                continue
+
+            if ping(ip):
+                status = "ON"
+                rto_count = 0
+                last_on = time.strftime('%Y-%m-%dT%H:%M:%S')
+                print(f"[PING] {name} ({ip}): ON")
+            else:
+                prev_rto = ont.get('rto_count', 0)
+                rto_count = prev_rto + 1
+                if rto_count == 1:
+                    status = "OFF(Waiting Connection)"
+                elif 2 <= rto_count <= 5:
+                    status = "OFF(RTO)"
                 else:
-                    ont['rto_count'] = ont.get('rto_count', 0) + 1
-                    if ont['rto_count'] == 1:
-                        ont['status'] = "OFF(Waiting Connection)"
-                    elif 2 <= ont['rto_count'] <= 5:
-                        ont['status'] = "OFF(RTO)"
-                    else:
-                        ont['status'] = "OFF"
-                    print(f"[PING] {name} ({ip}): {ont['status']}")
-            import os
-            f.seek(0)
-            json.dump(onts, f, indent=2, ensure_ascii=False)
-            f.truncate()
-            f.flush()
-            os.fsync(f.fileno())
-        print("Status ONT berhasil diperbarui di onts.json.")
+                    status = "OFF"
+                last_on = ont.get('last_on')
+                print(f"[PING] {name} ({ip}): {status}")
+
+            updates[ont_id] = {
+                'status': status,
+                'rto_count': rto_count,
+                'last_on': last_on
+            }
+
+        # 3) Re-load the latest file just before writing to avoid clobbering recent manual edits
+        try:
+            with open("onts.json", "r", encoding='utf-8') as f:
+                current = json.load(f)
+        except Exception:
+            current = []
+
+        # 4) Merge only the dynamic fields (status, rto_count, last_on) into the current data
+        for ont in current:
+            ont_id = ont.get('id')
+            if ont_id in updates:
+                ont.update({
+                    'status': updates[ont_id]['status'],
+                    'rto_count': updates[ont_id]['rto_count']
+                })
+                if updates[ont_id].get('last_on') is not None:
+                    ont['last_on'] = updates[ont_id]['last_on']
+
+        # 5) Write atomically to avoid partial writes and reduce race window
+        import os
+        temp_path = ".tmp-onts.json"
+        try:
+            with open(temp_path, 'w', encoding='utf-8') as tf:
+                json.dump(current, tf, indent=2, ensure_ascii=False)
+                tf.flush()
+                try:
+                    os.fsync(tf.fileno())
+                except Exception:
+                    pass
+            os.replace(temp_path, "onts.json")
+            print("Status ONT berhasil diperbarui di onts.json.")
+        finally:
+            try:
+                if os.path.exists(temp_path):
+                    os.remove(temp_path)
+            except Exception:
+                pass
     except Exception as e:
         print(f"Error saat memperbarui status ONT: {e}")
 

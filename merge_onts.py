@@ -23,8 +23,28 @@ def load_json_file(filename):
 def save_json_file(filename, data):
     """Menyimpan data ke file JSON"""
     try:
-        with open(filename, 'w', encoding='utf-8') as f:
+        # Write atomically to avoid partial writes and make a simple backup
+        import os
+        temp_path = f'.tmp-{filename}'
+        with open(temp_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
+            f.flush()
+            try:
+                os.fsync(f.fileno())
+            except Exception:
+                pass
+        # create backup of existing file if present
+        try:
+            if os.path.exists(filename):
+                timestamp = datetime.now().strftime('%Y%m%d-%H%M%S')
+                backup_filename = f'onts-backup-{timestamp}.json' if filename == 'onts.json' else f'{filename}-backup-{timestamp}.json'
+                with open(filename, 'r', encoding='utf-8') as oldf, open(backup_filename, 'w', encoding='utf-8') as bf:
+                    bf.write(oldf.read())
+                print(f"Backup dibuat: {backup_filename}")
+        except Exception as e:
+            print(f"Warning: gagal membuat backup: {e}")
+
+        os.replace(temp_path, filename)
         print(f"Data berhasil disimpan ke {filename}")
     except Exception as e:
         print(f"Error menyimpan ke {filename}: {e}")

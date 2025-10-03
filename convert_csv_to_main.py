@@ -95,8 +95,28 @@ def backup_existing_data():
 def save_new_data(data):
     """Menyimpan data baru ke onts.json"""
     try:
-        with open('onts.json', 'w', encoding='utf-8') as f:
+        # Tulis ke file sementara lalu replace untuk mencegah file korup/otomatis menimpa tanpa backup
+        import os
+        temp_path = '.tmp-onts.json'
+        with open(temp_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
+            f.flush()
+            try:
+                os.fsync(f.fileno())
+            except Exception:
+                pass
+        # Buat backup otomatis dari file lama jika ada
+        try:
+            if os.path.exists('onts.json'):
+                timestamp = datetime.now().strftime('%Y%m%d-%H%M%S')
+                backup_filename = f'onts-backup-before-csv-{timestamp}.json'
+                with open('onts.json', 'r', encoding='utf-8') as oldf, open(backup_filename, 'w', encoding='utf-8') as bf:
+                    bf.write(oldf.read())
+                print(f"✓ Backup existing dibuat: {backup_filename}")
+        except Exception as e:
+            print(f"⚠️  Gagal membuat backup sebelum menyimpan: {e}")
+
+        os.replace(temp_path, 'onts.json')
         print(f"✓ Data baru tersimpan ke onts.json")
         return True
     except Exception as e:

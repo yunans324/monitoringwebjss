@@ -556,5 +556,77 @@
     "ont_id": null,
     "ont_name": null,
     "read": false
+  },
+  {
+    "id": 63,
+    "message": "ONT diperbarui: Baciro RT 85 RW 20 (JP001855) \u2192 Baciro RT 85 RW 20 (JP001850)",
+    "type": "info",
+    "timestamp": "2025-10-03T15:51:15.593060",
+    "ont_id": 1,
+    "ont_name": "Baciro RT 85 RW 20",
+    "read": false
+  },
+  {
+    "id": 64,
+    "message": "ONT diperbarui: Baciro RT 85 RW 20 (JP001850) \u2192 Baciro RT 85 RW 20 (JP001855)",
+    "type": "info",
+    "timestamp": "2025-10-03T15:51:24.654430",
+    "ont_id": 1,
+    "ont_name": "Baciro RT 85 RW 20",
+    "read": false
+  },
+  {
+    "id": 65,
+    "message": "ONT diperbarui: Baciro RT 85 RW 20 (JP001855) \u2192 Baciro RT 85 RW 20 (JP001850)",
+    "type": "info",
+    "timestamp": "2025-10-03T15:51:53.941998",
+    "ont_id": 1,
+    "ont_name": "Baciro RT 85 RW 20",
+    "read": false
+  },
+  {
+    "id": 66,
+    "message": "ONT diperbarui: Baciro RT 85 RW 20 (JP001850) \u2192 Baciro RT 85 RW 20 (JP001855)",
+    "type": "info",
+    "timestamp": "2025-10-03T15:52:37.547002",
+    "ont_id": 1,
+    "ont_name": "Baciro RT 85 RW 20",
+    "read": false
+  },
+  {
+    "id": 67,
+    "message": "ONT diperbarui: Baciro RT 85 RW 20 (JP001855) \u2192 Baciro RT 85 RW 20 (JP001850)",
+    "type": "info",
+    "timestamp": "2025-10-03T16:10:59.845126",
+    "ont_id": 1,
+    "ont_name": "Baciro RT 85 RW 20",
+    "read": false
+  },
+  {
+    "id": 68,
+    "message": "ONT diperbarui: Baciro RT 85 RW 20 (JP001850) \u2192 Baciro RT 85 RW 20 (JP001855)",
+    "type": "info",
+    "timestamp": "2025-10-03T16:17:35.680426",
+    "ont_id": 1,
+    "ont_name": "Baciro RT 85 RW 20",
+    "read": false
+  },
+  {
+    "id": 69,
+    "message": "ONT diperbarui: Baciro RT 85 RW 20 (JP001855) \u2192 Baciro RT 85 RW 20 (JP001855)",
+    "type": "info",
+    "timestamp": "2025-10-03T16:18:03.794974",
+    "ont_id": 1,
+    "ont_name": "Baciro RT 85 RW 20",
+    "read": false
+  },
+  {
+    "id": 70,
+    "message": "ONT diperbarui: Baciro RT 85 RW 20 (JP001855) \u2192 Baciro RT 85 RW 20 (JP001855)",
+    "type": "info",
+    "timestamp": "2025-10-03T16:23:47.080823",
+    "ont_id": 1,
+    "ont_name": "Baciro RT 85 RW 20",
+    "read": false
   }
 ]
