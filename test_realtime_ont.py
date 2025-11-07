@@ -84,7 +84,11 @@ def test_realtime_monitoring():
     print("3. ONT dengan status OFF")
     print("4. ONT random")
     
-    choice = input("\nPilih opsi (1-4): ").strip()
+    try:
+        # When running under pytest, stdin may be unavailable; default to option 1
+        choice = input("\nPilih opsi (1-4): ").strip()
+    except (EOFError, OSError):
+        choice = '1'
     
     selected_ont = None
     

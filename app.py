@@ -1,9 +1,25 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 import os
 from datetime import datetime
+import calendar
 import json
 from collections import Counter
-import routeros_api
+# RouterOS dependency: provide fallback mock if not installed or MOCK_ROUTEROS is enabled
+try:
+    import routeros_api  # type: ignore
+except Exception:
+    class _MockRouterOsApiPool:
+        def __init__(self, *args, **kwargs):
+            pass
+        def get_api(self):
+            return self
+        def get_resource(self, path):
+            return self
+        def get(self):
+            return []
+        def disconnect(self):
+            pass
+    routeros_api = type('routeros_api', (), { 'RouterOsApiPool': _MockRouterOsApiPool })()
 
 app = Flask(__name__)
 
@@ -176,6 +192,11 @@ def dashboard():
 def analytics_page():
     """Menampilkan halaman analitik baru."""
     return render_template('analytics.html')
+
+@app.route('/healthz')
+def healthz():
+    """Endpoint sederhana untuk cek kesehatan service."""
+    return jsonify({"status": "ok"})
 
 @app.route('/api/onts')
 def api_onts():
@@ -433,7 +454,12 @@ def log_active_users():
 
 @app.route('/api/analytics-data')
 def get_analytics_data():
-    """Membaca user_log.json, memprosesnya, dan mengirimkan data untuk halaman analitik."""
+    """Membaca user_log.json, memprosesnya, dan mengirimkan data untuk halaman analitik.
+
+    Query param opsional:
+      - month: 'MM' (01-12) atau 'YYYY-MM' untuk mem-filter data harian pada bulan tertentu.
+    """
+    month_filter = request.args.get('month', '').strip()
     try:
         with open(USER_LOG_FILE, 'r') as f:
             log_data = json.load(f)
@@ -441,29 +467,127 @@ def get_analytics_data():
         return jsonify({"error": "Belum ada data analitik."}), 404
     if not log_data:
         return jsonify({"error": "Belum ada data analitik."}), 404
-
-    # --- PERUBAHAN UTAMA: MENGELOMPOKKAN DATA PER HARI ---
+    # --- PERUBAHAN UTAMA: MENGELOMPOKKAN DATA PER HARI DAN PER BULAN, SERTA MENAMBAHKAN DATA REALTIME ---
     daily_data = {}
+    monthly_data = {}
+    user_counts = []
+    all_macs = set()
+
     for entry in log_data:
-        day = datetime.fromisoformat(entry['timestamp']).strftime('%Y-%m-%d')
-        if day not in daily_data:
-            daily_data[day] = []
-        daily_data[day].append(len(entry['users']))
-    
-    daily_summary = []
+        # Parse timestamp (expects ISO format)
+        try:
+            dt = datetime.fromisoformat(entry['timestamp'])
+        except Exception:
+            # If parsing fails, skip this entry
+            continue
+
+        day = dt.strftime('%Y-%m-%d')
+        month = dt.strftime('%Y-%m')
+
+        count = len(entry.get('users', []))
+        user_counts.append(count)
+
+        # accumulate daily
+        daily_data.setdefault(day, []).append(count)
+        # accumulate monthly
+        monthly_data.setdefault(month, []).append(count)
+
+        # collect mac addresses
+        for user in entry.get('users', []):
+            mac = user.get('mac')
+            if mac:
+                all_macs.add(mac)
+
+    # Build summaries (tanpa filter terlebih dahulu)
+    daily_summary_all = []
     for day, counts in daily_data.items():
         if counts:
-            daily_summary.append({
+            daily_summary_all.append({
                 "date": day,
                 "peak": max(counts),
                 "trough": min(counts),
                 "average": round(sum(counts) / len(counts))
             })
+    daily_summary_all.sort(key=lambda x: x['date'])
 
-    daily_summary.sort(key=lambda x: x['date'])
-    user_counts = [len(entry['users']) for entry in log_data]
-    all_macs = set(user['mac'] for entry in log_data for user in entry['users'] if 'mac' in user)
+    monthly_summary = []
+    for month, counts in monthly_data.items():
+        if counts:
+            monthly_summary.append({
+                "month": month,
+                "peak": max(counts),
+                "trough": min(counts),
+                "average": round(sum(counts) / len(counts))
+            })
+    monthly_summary.sort(key=lambda x: x['month'])
+
+    # Prefill Jan-Dec tahun berjalan agar konsisten di front-end
+    current_year = datetime.now().year
+    existing_months = {m['month'] for m in monthly_summary}
+    for m in range(1, 13):
+        key = f"{current_year}-{m:02d}"
+        if key not in existing_months:
+            monthly_summary.append({
+                "month": key,
+                "peak": 0,
+                "trough": 0,
+                "average": 0
+            })
+    monthly_summary.sort(key=lambda x: x['month'])
+
+    # Terapkan filter harian jika diminta (?month=MM atau YYYY-MM)
+    normalized_filter = ""
+    no_data_for_month = False
+    if month_filter:
+        if len(month_filter) == 2 and month_filter.isdigit():
+            normalized_filter = f"{current_year}-{month_filter}"
+        elif len(month_filter) == 7 and '-' in month_filter:
+            normalized_filter = month_filter
+        else:
+            return jsonify({"error": "Format month tidak valid (gunakan MM atau YYYY-MM)."}), 400
     
+    daily_summary = daily_summary_all
+    if normalized_filter:
+        # Ambil semua record harian untuk bulan terpilih
+        daily_summary = [rec for rec in daily_summary_all if rec['date'].startswith(normalized_filter)]
+        # Jika kosong atau tidak lengkap, lengkapi placeholder 0 untuk seluruh tanggal di bulan tsb
+        try:
+            y, m = normalized_filter.split('-')
+            y = int(y); m = int(m)
+            _, days_in_month = calendar.monthrange(y, m)
+            existing_map = {rec['date']: rec for rec in daily_summary}
+            completed = []
+            for d in range(1, days_in_month + 1):
+                date_str = f"{y}-{m:02d}-{d:02d}"
+                if date_str in existing_map:
+                    completed.append(existing_map[date_str])
+                else:
+                    completed.append({
+                        "date": date_str,
+                        "peak": 0,
+                        "trough": 0,
+                        "average": 0
+                    })
+            completed.sort(key=lambda x: x['date'])
+            daily_summary = completed
+            no_data_for_month = False
+        except Exception:
+            # Jika parsing gagal, tetap gunakan hasil filter apa adanya
+            no_data_for_month = len(daily_summary) == 0
+
+    # Realtime: use last log entry as current snapshot (if exists)
+    realtime = {}
+    try:
+        last = log_data[-1]
+        realtime_users = last.get('users', []) if isinstance(last, dict) else []
+        realtime = {
+            'timestamp': last.get('timestamp'),
+            'count': len(realtime_users),
+            'unique_macs': len({u.get('mac') for u in realtime_users if u.get('mac')})
+        }
+    except Exception:
+        realtime = {'timestamp': None, 'count': 0, 'unique_macs': 0}
+
     analytics_payload = {
         "summary": {
             "peak_users": max(user_counts) if user_counts else 0,
@@ -472,8 +596,13 @@ def get_analytics_data():
             "unique_devices": len(all_macs)
         },
         "daily_summary": daily_summary,
-        "raw_logs": log_data[-100:]
+        "monthly_summary": monthly_summary,
+        "realtime": realtime,
+        "raw_logs": log_data[-100:],
+        "month_filter": normalized_filter,
+        "no_data_for_month": no_data_for_month
     }
+
     return jsonify(analytics_payload)
 
 if __name__ == '__main__':

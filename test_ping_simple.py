@@ -8,8 +8,8 @@ import platform
 import subprocess
 import time
 
-def test_ping_simple(ip):
-    """Test ping sederhana ke IP tertentu"""
+def ping_simple(ip):
+    """Ping helper: jalankan ping sederhana ke IP tertentu dan kembalikan bool sukses"""
     print(f"🔍 Testing ping ke {ip}...")
     
     try:
@@ -65,7 +65,7 @@ def test_local_network():
     
     for ip in local_ips:
         print(f"\n📍 Testing {ip}:")
-        success = test_ping_simple(ip)
+        success = ping_simple(ip)
         time.sleep(1)  # Jeda antar ping
 
 def test_ont_ips():
@@ -92,7 +92,7 @@ def test_ont_ips():
             
             if ip and ip.strip():
                 print(f"\n🔍 Testing ONT: {name} ({ip})")
-                success = test_ping_simple(ip)
+                success = ping_simple(ip)
                 time.sleep(2)  # Jeda lebih lama untuk IP eksternal
             else:
                 print(f"⚠️  {name}: IP kosong, skip")

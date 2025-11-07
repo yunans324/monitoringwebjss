@@ -10,21 +10,55 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
 
+    <!-- Use Poppins to match screenshot typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     
     <style>
-        body {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 25%, #e74c3c 50%, #c0392b 75%, #8e44ad 100%);
-            min-height: 100vh;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
+        :root{
+            /* Colors set per your selection */
+            --bg-start: #ff8a2b;   /* gradient-left */
+            --bg-end: #e74c3c;     /* gradient-right */
+            --card-bg: #ffffff;
+            --muted: #7f8c8d;
+            --primary: #ff6b35;    /* accent/orange */
+            --button-blue: #2ea2df; /* back-button blue */
+            --header-text: #ffffff; /* header/title text */
+            --text-color: #2c3e50;
+            /* Typography scale */
+            --fs-xs: 12px;
+            --fs-sm: 13px;
+            --fs-base: 14px;
+            --fs-md: 16px;
+            --fs-lg: 18px;
+            --fs-xl: 24px;
+            --fs-xxl: 40px;
+            --fw-regular: 400;
+            --fw-medium: 500;
+            --fw-semibold: 600;
+            --fw-bold: 700;
+            --fw-extrabold: 800;
         }
+
+        body {
+            /* Orange gradient like screenshot */
+            background: linear-gradient(90deg, var(--bg-start) 0%, var(--bg-end) 100%);
+            min-height: 100vh;
+            /* unified font to match screenshot */
+            font-family: 'Poppins', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
         .analytics-container {
-            padding: 2rem;
-            max-width: 1400px;
+            padding: 2rem 1.5rem;
+            max-width: 1300px;
             margin: 0 auto;
         }
         .header {
@@ -33,26 +67,30 @@
             color: white;
         }
         .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            font-size: var(--fs-xxl);
+            font-weight: var(--fw-extrabold);
+            letter-spacing: .3px;
+            line-height: 1.15;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.25);
+            margin: 0.4rem 0 0.2rem;
         }
         .card {
-            background: rgba(255, 255, 255, 0.97);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            padding: 2rem;
-            margin-bottom: 2rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            padding: 1.6rem;
+            margin-bottom: 1.6rem;
             border: none;
         }
         .card-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
+            font-size: var(--fs-lg);
+            font-weight: var(--fw-bold);
+            color: var(--text-color);
+            margin: 0 0 1rem;
             text-align: center;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 1rem;
+            border-bottom: 1px dashed rgba(0,0,0,0.04);
+            padding-bottom: 0.8rem;
+            letter-spacing: .2px;
         }
         .stats-grid {
             display: grid;
@@ -60,47 +98,52 @@
             gap: 1.5rem;
         }
         .stat-item {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 1.2rem;
+            border-radius: 14px;
+            padding: 1.1rem 1.2rem;
             text-align: center;
-            border-left: 5px solid #ff6b35;
+            min-height: 122px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            color: var(--text-color);
         }
-        .stat-item i {
-            font-size: 1.8rem;
-            color: #ff6b35;
-            margin-bottom: 0.8rem;
-        }
-        .stat-value {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #2c3e50;
-        }
-        .stat-label {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            font-weight: 500;
-            margin-top: 0.5rem;
-        }
+        /* Vibrant color backgrounds for each metric (restore vivid palette) */
+        .stat-item:nth-child(1) { background: linear-gradient(135deg,#ffb3a1,#ffe7df); box-shadow: 0 8px 20px -6px rgba(231,76,60,0.35); }
+        .stat-item:nth-child(2) { background: linear-gradient(135deg,#ffd36a,#fff3c7); box-shadow: 0 8px 20px -6px rgba(241,196,15,0.35); }
+        .stat-item:nth-child(3) { background: linear-gradient(135deg,#ffe7df,#fffefd); box-shadow: 0 8px 20px -6px rgba(255,107,53,0.25); }
+        .stat-item:nth-child(4) { background: linear-gradient(135deg,#b3e5fc,#e3f7ff); box-shadow: 0 8px 20px -6px rgba(52,152,219,0.30); }
+        .stat-item:nth-child(5) { background: linear-gradient(135deg,#d9c3ff,#f1e9ff); box-shadow: 0 8px 20px -6px rgba(155,89,182,0.30); }
+        .stat-item i { text-shadow: 0 2px 4px rgba(0,0,0,0.15); }
+        .stat-item:nth-child(1) i { color:#e74c3c; }
+        .stat-item:nth-child(2) i { color:#f39c12; }
+        .stat-item:nth-child(3) i { color:#ff6b35; }
+        .stat-item:nth-child(4) i { color:#3498db; }
+        .stat-item:nth-child(5) i { color:#9b59b6; }
+        .stat-item i { font-size:1.7rem; margin-bottom:0.6rem; }
+    .stat-value { font-size:2.6rem; font-weight:800; line-height:1.05; letter-spacing:.2px; }
+    .stat-label { font-size:var(--fs-sm); font-weight:var(--fw-semibold); letter-spacing:.2px; margin-top:.45rem; }
         .chart-section {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 2rem;
+            gap: 1.6rem;
         }
-        .chart-box { height: 400px; }
+        .chart-box { min-height: 340px; height: 100%; }
         .back-button {
             display: inline-block;
-            background-color: #3498db;
+            background-color: var(--button-blue);
             color: white;
             padding: 10px 20px;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
+            border-radius: 6px;
+            transition: background 0.2s ease;
             position: absolute;
             top: 2rem;
             left: 2rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
         }
-        .back-button:hover { background-color: #2980b9; color: white; }
+        .back-button:hover { filter: brightness(0.95); }
         
         @media (max-width: 992px) {
             .chart-section { grid-template-columns: 1fr; }
@@ -126,14 +169,25 @@
                 <div class="stat-item"><i class="fas fa-arrow-down-right-dots"></i><div class="stat-value" id="troughUsers">-</div><div class="stat-label">User Terendah</div></div>
                 <div class="stat-item"><i class="fas fa-scale-balanced"></i><div class="stat-value" id="averageUsers">-</div><div class="stat-label">Rata-rata User</div></div>
                 <div class="stat-item"><i class="fas fa-desktop"></i><div class="stat-value" id="uniqueDevices">-</div><div class="stat-label">Perangkat Unik</div></div>
+                <div class="stat-item"><i class="fas fa-broadcast-tower"></i><div class="stat-value" id="realtimeCount">-</div><div class="stat-label">Realtime Users</div><div style="font-size:0.8rem;color:#7f8c8d;margin-top:6px;" id="realtimeTimestamp">-</div></div>
             </div>
         </div>
 
         <div class="card">
-            <h2 class="card-title"><i class="fas fa-chart-line"></i> Visualisasi Data</h2>
+            <h2 class="card-title" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+                <span><i class="fas fa-chart-line"></i> Visualisasi Data</span>
+                <div class="d-flex align-items-center" style="gap:.75rem;">
+                    <label for="monthFilter" class="form-label mb-0" style="font-size:var(--fs-sm);color:var(--muted);font-weight:var(--fw-medium)">Filter Bulan:</label>
+                    <select id="monthFilter" class="form-select form-select-sm" style="min-width:160px;">
+                        <option value="" selected>Semua Bulan</option>
+                    </select>
+                    <button id="refreshCharts" class="btn btn-sm" style="background:var(--button-blue);color:#fff;box-shadow:0 2px 6px rgba(0,0,0,.15);">Refresh</button>
+                </div>
+            </h2>
             <div class="chart-section">
-                <div class="chart-box">
-                    <canvas id="dailyBarChart"></canvas>
+                <div id="chartColumn" style="display:flex;flex-direction:column;gap:1.5rem;">
+                    <div class="chart-box" id="monthlyChartWrapper"><canvas id="monthlyBarChart"></canvas></div>
+                    <div class="chart-box" id="dailyChartWrapper"><canvas id="dailyBarChart"></canvas></div>
                 </div>
                 <div class="chart-box">
                     <canvas id="topUsersChart"></canvas>
@@ -164,8 +218,9 @@
     </div> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        let userHistoryChartInstance;
-        let topUsersChartInstance;
+    let userHistoryChartInstance;
+    let monthlyChartInstance;
+    let topUsersChartInstance;
 
         function formatBytes(bytes) {
             if (bytes === 0) return '0 Bytes';
@@ -188,8 +243,15 @@
                     $('#troughUsers').text(data.summary.trough_users);
                     $('#averageUsers').text(data.summary.average_users);
                     $('#uniqueDevices').text(data.summary.unique_devices);
+                    // realtime snapshot
+                    if (data.realtime) {
+                        $('#realtimeCount').text(data.realtime.count || 0);
+                        const ts = data.realtime.timestamp ? new Date(data.realtime.timestamp).toLocaleString('id-ID') : '-';
+                        $('#realtimeTimestamp').text(ts);
+                    }
 
                     updateDailyBarChart(data.daily_summary);
+                    updateMonthlyBarChart(data.monthly_summary || []);
                     
                     const userSummary = calculateUserSummary(data.raw_logs);
                     updateTopUsersChart(userSummary);
@@ -203,7 +265,87 @@
                 });
         }
 
-        function updateDailyBarChart(dailySummary) {
+        function updateMonthlyBarChart(monthlySummary, highlightMonth) {
+            if (monthlyChartInstance) monthlyChartInstance.destroy();
+
+            // Build a map for fast lookup
+            const summaryMap = {};
+            monthlySummary.forEach(m => { summaryMap[m.month] = m; });
+            const year = new Date().getFullYear();
+            const labels = [];
+            const peakData = [];
+            const avgData = [];
+            const troughData = [];
+            const monthNames = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+            for(let i=1;i<=12;i++){
+                const mm = (''+i).padStart(2,'0');
+                const key = `${year}-${mm}`;
+                labels.push(monthNames[i-1]);
+                if(summaryMap[key]){
+                    peakData.push(summaryMap[key].peak);
+                    avgData.push(summaryMap[key].average);
+                    troughData.push(summaryMap[key].trough);
+                } else {
+                    peakData.push(0); avgData.push(0); troughData.push(0);
+                }
+            }
+
+            const ctx = document.getElementById('monthlyBarChart').getContext('2d');
+            monthlyChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'User Puncak',
+                            data: peakData,
+                            backgroundColor: 'rgba(231,76,60,0.7)',
+                            borderColor: 'rgba(231,76,60,1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Rata-rata User',
+                            data: avgData,
+                            backgroundColor: 'rgba(241,196,15,0.7)',
+                            borderColor: 'rgba(241,196,15,1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'User Terendah',
+                            data: troughData,
+                            backgroundColor: 'rgba(52,152,219,0.7)',
+                            borderColor: 'rgba(52,152,219,1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { title: { display: true, text: `Ringkasan Bulanan - ${year}` } },
+                    scales: { y: { beginAtZero: true, title: { display: true, text: 'Jumlah User' } } }
+                }
+            });
+
+            // Highlight selected month (change bar border thickness)
+            if (highlightMonth && highlightMonth.includes('-')) {
+                const selMonth = parseInt(highlightMonth.split('-')[1],10); // 1..12
+                const idx = selMonth - 1;
+                if(idx>=0 && idx<labels.length){
+                    monthlyChartInstance.data.datasets.forEach(ds => {
+                        if(!ds._originalBorderWidth){ ds._originalBorderWidth = ds.borderWidth; }
+                    });
+                    monthlyChartInstance.data.datasets.forEach(ds => {
+                        // create a per-bar borderWidth array
+                        const bw = ds.data.map((_,i)=> i===idx ? 3 : 1);
+                        ds.borderWidth = bw;
+                    });
+                    monthlyChartInstance.update();
+                }
+            }
+        }
+
+        function updateDailyBarChart(dailySummary, selectedMonthValue) {
             if (userHistoryChartInstance) userHistoryChartInstance.destroy();
 
             const labels = dailySummary.map(d => new Date(d.date).toLocaleDateString('id-ID', { weekday: 'short', day: 'numeric', month: 'short' }));
@@ -244,7 +386,13 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        title: { display: true, text: 'Statistik User Harian' },
+                        title: { display: true, text: (()=>{
+                            if(!selectedMonthValue){ return 'Statistik User Harian'; }
+                            const [yr, mo] = selectedMonthValue.split('-');
+                            const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+                            const name = bulan[parseInt(mo,10)-1] || selectedMonthValue;
+                            return `Statistik User Harian - ${name} ${yr}`;
+                        })() },
                         tooltip: { mode: 'index', intersect: false }
                     },
                     scales: {
@@ -331,6 +479,101 @@
             $('#userSessionTable').DataTable({"order": [[ 0, "desc" ]]});
             $('#userSummaryTable').DataTable({"order": [[ 1, "desc" ]]});
             
+            let originalDailySummary = [];
+            let originalMonthlySummary = [];
+            let lastDataPayload = null;
+            const CURRENT_YEAR = new Date().getFullYear();
+
+            function monthNameOnly(index){
+                const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+                return bulan[index] || '';
+            }
+
+            function generateFullYearMonths(year){
+                const arr = [];
+                for(let i=1;i<=12;i++){
+                    const mm = (''+i).padStart(2,'0');
+                    arr.push({ value: `${year}-${mm}`, label: monthNameOnly(i-1) });
+                }
+                return arr;
+            }
+
+            function populateMonthFilter(){
+                const select = $('#monthFilter');
+                const prev = select.val();
+                select.find('option').not('[value=""]').remove();
+                const items = generateFullYearMonths(CURRENT_YEAR);
+                items.forEach(m => {
+                    select.append(`<option value="${m.value}">${m.label}</option>`);
+                });
+                if(prev && items.some(it=>it.value===prev)){
+                    select.val(prev);
+                }
+            }
+
+            function applyMonthFilter(){
+                // Saat user pilih bulan, lakukan fetch ke backend dengan query ?month=
+                loadAnalyticsData();
+            }
+
+            // override loadAnalyticsData to store originals then apply filter
+            const _origLoad = loadAnalyticsData;
+            loadAnalyticsData = function(){
+                const selected = $('#monthFilter').val() || '';
+                const query = selected ? `?month=${encodeURIComponent(selected)}` : '';
+                fetch(`/api/analytics-data${query}`)
+                    .then(r=>r.json())
+                    .then(data=>{
+                        lastDataPayload = data;
+                        if(data.error){
+                            $('#summaryStats').html(`<p class="text-center text-danger col-12">${data.error}</p>`);
+                            return;
+                        }
+                        $('#peakUsers').text(data.summary.peak_users);
+                        $('#troughUsers').text(data.summary.trough_users);
+                        $('#averageUsers').text(data.summary.average_users);
+                        $('#uniqueDevices').text(data.summary.unique_devices);
+                        if (data.realtime) {
+                            $('#realtimeCount').text(data.realtime.count || 0);
+                            const ts = data.realtime.timestamp ? new Date(data.realtime.timestamp).toLocaleString('id-ID') : '-';
+                            $('#realtimeTimestamp').text(ts);
+                        }
+                        originalDailySummary = data.daily_summary || [];
+                        originalMonthlySummary = data.monthly_summary || [];
+                        // efektif pakai nilai dari backend jika ada (menghindari mismatch saat auto-refresh)
+                        const effectiveSelected = data.month_filter || selected || '';
+                        // pastikan dropdown terisi dan mempertahankan pilihan
+                        populateMonthFilter();
+                        if(effectiveSelected){ $('#monthFilter').val(effectiveSelected); }
+                        // update chart langsung dari data backend
+                        updateMonthlyBarChart(originalMonthlySummary, effectiveSelected || null);
+                        updateDailyBarChart(originalDailySummary, effectiveSelected || null);
+                        // tampilkan pesan no-data jika perlu
+                        const noData = !!data.no_data_for_month && (!originalDailySummary || originalDailySummary.every(x=>x.peak===0 && x.trough===0 && x.average===0));
+                        let msgEl = document.getElementById('dailyNoDataMsg');
+                        if(!msgEl){
+                            msgEl = document.createElement('div');
+                            msgEl.id = 'dailyNoDataMsg';
+                            msgEl.style.textAlign = 'center';
+                            msgEl.style.color = '#7f8c8d';
+                            msgEl.style.marginTop = '4px';
+                            const wrapper = document.getElementById('dailyChartWrapper');
+                            wrapper.parentNode.insertBefore(msgEl, wrapper.nextSibling);
+                        }
+                        msgEl.textContent = noData ? 'Tidak ada data untuk bulan ini.' : '';
+                        const userSummary = calculateUserSummary(data.raw_logs);
+                        updateTopUsersChart(userSummary);
+                        populateUserSummaryTable(userSummary);
+                        populateUserSessionTable(data.raw_logs);
+                    })
+                    .catch(err=>{
+                        console.error('Error fetching analytics data:', err);
+                        $('#summaryStats').html(`<p class="text-center text-danger col-12">Gagal memuat data analitik.</p>`);
+                    });
+            };
+
+            $('#monthFilter').on('change', applyMonthFilter);
+            $('#refreshCharts').on('click', function(){ loadAnalyticsData(); });
             loadAnalyticsData();
             setInterval(loadAnalyticsData, 30000);
         });
